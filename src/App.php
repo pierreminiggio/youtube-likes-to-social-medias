@@ -36,12 +36,30 @@ class App
             return;
         }
 
+        $supportedLangs = ['fr', 'en'];
+
+        $speechToTextAPI = 'https://gtts-api.miniggiodev.fr';
+        $supportedLangsCurl = curl_init($speechToTextAPI);
+        curl_setopt($supportedLangsCurl, CURLOPT_RETURNTRANSFER, true);
+        $supportedLangsCurlResponse = curl_exec($supportedLangsCurl);
+
+        if (! empty($supportedLangsCurlResponse)) {
+            $supportedLangsCurlJsonResponse = json_decode($supportedLangsCurlResponse, true);
+
+            if (! empty($supportedLangsCurlJsonResponse) && ! empty($supportedLangsCurlJsonResponse['langs'])) {
+                $supportedLangs = $supportedLangsCurlJsonResponse['langs'];
+            }
+        }
+
         $channelVideos = [];
+        $channelAudios = [];
 
         $channelStorageUrl = 'https://storage.miniggiodev.fr/youtube-likes-recap/channel/';
 
         foreach ($likes as &$like) {
             $channelId = $like['channel_id'];
+
+            $channelVideo = null;
 
             if (! in_array($channelId, array_keys($channelVideos))) {
                 $channelVideoCurl = curl_init($channelStorageUrl . $channelId . '/');
@@ -63,15 +81,38 @@ class App
                         }
                     }
 
-                    $channelVideos[$channelId] = $channelStorageUrl . $channelId . '/' . $videos[array_rand($videos)];
-                } else {
-                    $channelVideos[$channelId] = 'test';
-                    // TODO make placeholder video
+                    $channelVideo = $channelStorageUrl . $channelId . '/' . $videos[array_rand($videos)];
+                    $channelVideos[$channelId] = $channelVideo;
                 }
+            } else {
+                $channelVideo = $channelVideos[$channelId];
             }
 
-            $like['channel_video'] = $channelVideos[$channelId];
-            var_dump($like['channel_video']);
+            $like['channel_video'] = $channelVideo;
+
+            if (! in_array($channelId, array_keys($channelAudios))) {
+                $lang = 'en';
+
+                if (! empty($like['channel_country'])) {
+                    $langCurl = curl_init('https://country-to-lang-api.miniggiodev.fr/' . $like['channel_country']);
+                    curl_setopt($langCurl, CURLOPT_RETURNTRANSFER, true);
+                    $curlResponse = curl_exec($langCurl);
+
+                    if (! empty($curlResponse)) {
+                        $jsonResponse = json_decode($curlResponse, true);
+                        if (! empty($jsonResponse) && $jsonResponse['lang']) {
+                            $fetchedLang = $jsonResponse['lang'];
+
+                            if (in_array($fetchedLang, $supportedLangs)) {
+                                $lang = $fetchedLang;
+                            }
+                        }
+                    }
+                }
+                $channelAudios[$channelId] = $speechToTextAPI . '/' . urlencode($like['channel_name']) . '?lang=' . $lang;
+            }
+
+            $like['channel_audio'] = $channelAudios[$channelId];
         }
     }
 }
