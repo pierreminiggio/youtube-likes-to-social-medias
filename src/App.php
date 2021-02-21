@@ -57,8 +57,9 @@ class App
                     $videos = [];
                     foreach ($links as $link) {
                         $content = $link->textContent;
-                        if (str_contains($content, '.webm')) {
-                            $videos[] = substr($content, 0, -5);
+                        $videoExt = '.webm';
+                        if (str_contains($content, $videoExt)) {
+                            $videos[] = substr($content, 0, - strlen($videoExt));
                         }
                     }
 
@@ -70,6 +71,7 @@ class App
             }
 
             $like['channel_video'] = $channelVideos[$channelId];
+            var_dump($like['channel_video']);
         }
     }
 }
