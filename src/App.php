@@ -35,7 +35,7 @@ class App
             return;
         }
 
-        $likePopulator = new LikePopulator();
+        $likePopulator = new LikeMediaPopulator();
         $likePopulator->populate($likes);
     }
 }

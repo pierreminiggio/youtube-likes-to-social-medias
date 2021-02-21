@@ -4,7 +4,7 @@ namespace App;
 
 use DomDocument;
 
-class LikePopulator
+class LikeMediaPopulator
 {
 
     public function populate(array &$likes): void
