@@ -37,5 +37,7 @@ class App
 
         $likePopulator = new LikeMediaPopulator();
         $likePopulator->populate($likes);
+
+        //file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'likes.json', json_encode($likes));
     }
 }
