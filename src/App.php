@@ -18,9 +18,10 @@ class App
         
         $likeCurl = curl_init('https://old.miniggiodev.fr/api/getVideoableLikes.php');
 
+        $authHeader = ['Content-Type: application/json' , 'Authorization: Bearer ' . $token];
         curl_setopt_array($likeCurl, [
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTPHEADER => ['Content-Type: application/json' , 'Authorization: Bearer ' . $token]
+            CURLOPT_HTTPHEADER => $authHeader
         ]);
 
         $likeCurlResponse = curl_exec($likeCurl);
@@ -35,7 +36,7 @@ class App
             return;
         }
 
-        $likePopulator = new LikeMediaPopulator();
+        $likePopulator = new LikeMediaPopulator($authHeader);
         $likePopulator->populate($likes);
 
         //file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'likes.json', json_encode($likes));

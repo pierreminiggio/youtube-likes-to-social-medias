@@ -7,6 +7,13 @@ use DomDocument;
 class LikeMediaPopulator
 {
 
+    /**
+     * @param string[] $authHeader
+     */
+    public function __construct(protected array $authHeader)
+    {
+    }
+
     public function populate(array &$likes): void
     {
         $supportedLangs = ['fr', 'en'];
@@ -28,10 +35,13 @@ class LikeMediaPopulator
         $channelAudios = [];
 
         $channelStorageUrl = 'https://storage.miniggiodev.fr/youtube-likes-recap/channel/';
+        $clipApiUrl = 'https://youtube-video-random-clip-api.miniggiodev.fr/';
+        $outputClipUrl = $clipApiUrl . 'video/';
 
         foreach ($likes as &$like) {
             $channelId = $like['channel_id'];
 
+            // Add channel video if present
             $channelVideo = null;
 
             if (! in_array($channelId, array_keys($channelVideos))) {
@@ -63,6 +73,7 @@ class LikeMediaPopulator
 
             $like['channel_video'] = $channelVideo;
 
+            // Add channel audio
             if (! in_array($channelId, array_keys($channelAudios))) {
                 $lang = 'en';
 
@@ -86,6 +97,18 @@ class LikeMediaPopulator
             }
 
             $like['channel_audio'] = $channelAudios[$channelId];
+
+            // Create and add clip
+            $videoId = $like['youtube_id'];
+            $videoClipCurl = curl_init($clipApiUrl . $videoId);
+            curl_setopt_array($videoClipCurl, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTPHEADER, $this->authHeader
+            ]);
+            curl_exec($videoClipCurl);
+            $httpCode = curl_getinfo($channelVideoCurl)['http_code'];
+
+            $like['video_clip'] = $httpCode === 201 ? ($outputClipUrl . $videoId) : null;
         }
     }
 }
