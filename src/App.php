@@ -15,6 +15,8 @@ class App
             . 'config.php'
         ;
         $token = $config['apiToken'];
+
+        echo PHP_EOL . 'Getting likes ...';
         
         $likeCurl = curl_init('https://old.miniggiodev.fr/api/getVideoableLikes.php');
 
@@ -36,8 +38,16 @@ class App
             return;
         }
 
+        curl_close($likeCurl);
+
+        echo ' Done !';
+
+        echo PHP_EOL . PHP_EOL . 'Populating likes ...';
+
         $likePopulator = new LikeMediaPopulator($authHeader);
         $likePopulator->populate($likes);
+
+        echo PHP_EOL . PHP_EOL . 'Populated !';
 
         //file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'likes.json', json_encode($likes));
     }

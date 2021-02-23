@@ -18,6 +18,7 @@ class LikeMediaPopulator
     {
         $supportedLangs = ['fr', 'en'];
 
+        echo PHP_EOL . 'Getting supported langs ...';
         $speechToTextAPI = 'https://gtts-api.miniggiodev.fr';
         $supportedLangsCurl = curl_init($speechToTextAPI);
         curl_setopt($supportedLangsCurl, CURLOPT_RETURNTRANSFER, true);
@@ -30,20 +31,23 @@ class LikeMediaPopulator
                 $supportedLangs = $supportedLangsCurlJsonResponse['langs'];
             }
         }
+        curl_close($supportedLangsCurl);
+
+        echo ' Done !';
 
         $channelVideos = [];
         $channelAudios = [];
 
         $channelStorageUrl = 'https://storage.miniggiodev.fr/youtube-likes-recap/channel/';
         $clipApiUrl = 'https://youtube-video-random-clip-api.miniggiodev.fr/';
-        $outputClipUrl = $clipApiUrl . 'video/';
+        $outputClipUrl = $clipApiUrl . 'public/video/';
 
-        foreach ($likes as &$like) {
+        foreach ($likes as $index => &$like) {
+            echo PHP_EOL . ($index + 1) . '/' . count($likes);
             $channelId = $like['channel_id'];
-
-            // Add channel video if present
             $channelVideo = null;
 
+            echo ' Video ?';
             if (! in_array($channelId, array_keys($channelVideos))) {
                 $channelVideoCurl = curl_init($channelStorageUrl . $channelId . '/');
                 curl_setopt($channelVideoCurl, CURLOPT_RETURNTRANSFER, true);
@@ -67,13 +71,15 @@ class LikeMediaPopulator
                     $channelVideo = $channelStorageUrl . $channelId . '/' . $videos[array_rand($videos)];
                     $channelVideos[$channelId] = $channelVideo;
                 }
+                curl_close($channelVideoCurl);
             } else {
                 $channelVideo = $channelVideos[$channelId];
             }
 
             $like['channel_video'] = $channelVideo;
+            echo ' ' . ($channelVideo !== null ? 'None' : 'Got one') . ' !';
 
-            // Add channel audio
+            echo ' Audio ?';
             if (! in_array($channelId, array_keys($channelAudios))) {
                 $lang = 'en';
 
@@ -92,13 +98,15 @@ class LikeMediaPopulator
                             }
                         }
                     }
+                    curl_close($langCurl);
                 }
                 $channelAudios[$channelId] = $speechToTextAPI . '/' . urlencode($like['channel_name']) . '?lang=' . $lang;
             }
 
             $like['channel_audio'] = $channelAudios[$channelId];
+            echo ' Done !';
 
-            // Create and add clip
+            echo ' Clip ?';
             $videoId = $like['youtube_id'];
             $videoClipCurl = curl_init($clipApiUrl . $videoId);
             curl_setopt_array($videoClipCurl, [
@@ -106,9 +114,12 @@ class LikeMediaPopulator
                 CURLOPT_HTTPHEADER => $this->authHeader
             ]);
             curl_exec($videoClipCurl);
-            $httpCode = curl_getinfo($channelVideoCurl)['http_code'];
+            $httpCode = curl_getinfo($videoClipCurl)['http_code'];
+            curl_close($videoClipCurl);
 
-            $like['video_clip'] = $httpCode === 201 ? ($outputClipUrl . $videoId) : null;
+            $like['video_clip'] = $httpCode === 204 ? ($outputClipUrl . $videoId) : null;
+
+            echo ' ' . ($like['video_clip'] ? 'Got one' : 'None') . ' !';
         }
     }
 }
