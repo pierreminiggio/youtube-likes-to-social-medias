@@ -103,7 +103,7 @@ class LikeMediaPopulator
             $videoClipCurl = curl_init($clipApiUrl . $videoId);
             curl_setopt_array($videoClipCurl, [
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HTTPHEADER, $this->authHeader
+                CURLOPT_HTTPHEADER => $this->authHeader
             ]);
             curl_exec($videoClipCurl);
             $httpCode = curl_getinfo($channelVideoCurl)['http_code'];
