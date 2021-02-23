@@ -49,6 +49,20 @@ class App
 
         echo PHP_EOL . PHP_EOL . 'Populated !';
 
-        //file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'likes.json', json_encode($likes));
+        file_put_contents(
+            __DIR__
+                . DIRECTORY_SEPARATOR
+                . '..'
+                . DIRECTORY_SEPARATOR
+                . 'node_modules'
+                . DIRECTORY_SEPARATOR
+                . '@pierreminiggio'
+                . DIRECTORY_SEPARATOR
+                . 'youtube-likes-recap-video-maker'
+                . DIRECTORY_SEPARATOR
+                . 'likes.json'
+            ,
+            json_encode($likes)
+        );
     }
 }
