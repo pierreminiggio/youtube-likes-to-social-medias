@@ -14,5 +14,10 @@
     "config": {
         "sort-packages": true
     },
-    "require": {}
+    "require": {},
+    "scripts": {
+        "post-install-cmd": [
+            "bash post-install.sh"
+        ]
+    }
 }
