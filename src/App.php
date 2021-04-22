@@ -49,6 +49,8 @@ class App
 
         echo PHP_EOL . PHP_EOL . 'Populated !';
 
+        echo PHP_EOL . PHP_EOL . 'Saving likes into a JSON file ...';
+
         file_put_contents(
             __DIR__
                 . DIRECTORY_SEPARATOR
@@ -64,5 +66,37 @@ class App
             ,
             json_encode($likes)
         );
+
+        echo ' Saved !';
+
+        $videoFolder =
+            __DIR__
+            . DIRECTORY_SEPARATOR
+            . '..'
+            . DIRECTORY_SEPARATOR
+            . 'node_modules'
+            . DIRECTORY_SEPARATOR
+            . '@pierreminiggio'
+            . DIRECTORY_SEPARATOR
+            . 'youtube-likes-recap-video-maker'
+        ;
+
+        $videoFile = $videoFolder . DIRECTORY_SEPARATOR . 'out.mp4';
+
+        if (file_exists($videoFile)) {
+            echo PHP_EOL . PHP_EOL . 'Removing old video file ...';
+            unlink($videoFile);
+            echo ' Removed !';
+        }
+
+        echo PHP_EOL . PHP_EOL . 'Rendering video ...' . PHP_EOL . PHP_EOL;
+        $renderLog = shell_exec('npm --prefix ' . escapeshellarg($videoFolder) . ' run build');
+
+        if (! str_contains($renderLog, 'Your video is ready')) {
+            echo ' Error while rendering !';
+
+            return;
+        }
+        echo 'Rendered !';
     }
 }
