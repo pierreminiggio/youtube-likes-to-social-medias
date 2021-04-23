@@ -183,65 +183,69 @@ class App
 
         echo ' Uploaded !';
 
-        echo PHP_EOL . PHP_EOL . 'Tweeting ...';
+        if ($youtubeVideoId) {
+            echo PHP_EOL . PHP_EOL . 'Tweeting ...';
         
-        $tweetStart = 'J\'ai 👍 les videos de ';
-        $tweetEnd = ' :' . PHP_EOL . 'https://youtu.be/' . $youtubeVideoId;
+            $tweetStart = 'J\'ai 👍 les videos de ';
+            $tweetEnd = ' :' . PHP_EOL . 'https://youtu.be/' . $youtubeVideoId;
 
-        $twitterHandles = [];
-        $tweet = '';
-        foreach ($likes as &$like) {
-            $twitterCurl = curl_init('https://twitter-handle-finder-api.miniggiodev.fr/' . $like['channel_id']);
-            curl_setopt($twitterCurl, CURLOPT_RETURNTRANSFER, true);
-            $twitterCurlResponse = curl_exec($twitterCurl);
-            curl_close($twitterCurl);
+            $twitterHandles = [];
+            $tweet = '';
+            foreach ($likes as &$like) {
+                $twitterCurl = curl_init('https://twitter-handle-finder-api.miniggiodev.fr/' . $like['channel_id']);
+                curl_setopt($twitterCurl, CURLOPT_RETURNTRANSFER, true);
+                $twitterCurlResponse = curl_exec($twitterCurl);
+                curl_close($twitterCurl);
 
-            if (empty($twitterCurlResponse)) {
-                continue;
+                if (empty($twitterCurlResponse)) {
+                    continue;
+                }
+
+                $jsonTwitterCurlResponse = json_decode($twitterCurlResponse, true);
+
+                if ($jsonTwitterCurlResponse === null || empty($jsonTwitterCurlResponse['twitter_handle'])) {
+                    continue;
+                }
+
+                $twitterHandle = $jsonTwitterCurlResponse['twitter_handle'];
+
+                if (in_array($twitterHandle, $twitterHandles)) {
+                    continue;
+                }
+
+                $twitterHandles[] = $twitterHandle;
+
+                $maybeNextTweet =
+                    $tweetStart
+                    . implode(
+                        ' ',
+                        array_map(fn (string $handle): string => '@' . $handle, $twitterHandles)
+                    )
+                    . $tweetEnd;
+
+                if (strlen($maybeNextTweet) >= 280) {
+                    break;
+                }
+
+                $tweet = $maybeNextTweet;
             }
 
-            $jsonTwitterCurlResponse = json_decode($twitterCurlResponse, true);
-
-            if ($jsonTwitterCurlResponse === null || empty($jsonTwitterCurlResponse['twitter_handle'])) {
-                continue;
+            if (! $twitterHandles) {
+                $tweet = $tweetStart . 'plusieurs Youtubeurs' . $tweetEnd;
             }
 
-            $twitterHandle = $jsonTwitterCurlResponse['twitter_handle'];
+            $postTweetCurl = curl_init('https://old.miniggiodev.fr/test/twitter/api/index.php');
+            $PostTweetCurlOptions = $curlOptions;
+            $PostTweetCurlOptions[CURLOPT_POST] = 1;
+            $PostTweetCurlOptions[CURLOPT_POSTFIELDS] = $tweet;
+            curl_setopt_array($postTweetCurl, $PostTweetCurlOptions);
+            curl_exec($postTweetCurl);
+            curl_close($postTweetCurl);
 
-            if (in_array($twitterHandle, $twitterHandles)) {
-                continue;
-            }
-
-            $twitterHandles[] = $twitterHandle;
-
-            $maybeNextTweet =
-                $tweetStart
-                . implode(
-                    ' ',
-                    array_map(fn (string $handle): string => '@' . $handle, $twitterHandles)
-                )
-                . $tweetEnd;
-
-            if (strlen($maybeNextTweet) >= 280) {
-                break;
-            }
-
-            $tweet = $maybeNextTweet;
+            echo ' Tweeted !';
+        } else {
+            echo PHP_EOL . PHP_EOL . 'Can\'t tweet as we didn\'t get the youtube id :\'(';
         }
-
-        if (! $twitterHandles) {
-            $tweet = $tweetStart . 'plusieurs Youtubeurs' . $tweetEnd;
-        }
-
-        $postTweetCurl = curl_init('https://old.miniggiodev.fr/test/twitter/api/index.php');
-        $PostTweetCurlOptions = $curlOptions;
-        $PostTweetCurlOptions[CURLOPT_POST] = 1;
-        $PostTweetCurlOptions[CURLOPT_POSTFIELDS] = $tweet;
-        curl_setopt_array($postTweetCurl, $PostTweetCurlOptions);
-        curl_exec($postTweetCurl);
-        curl_close($postTweetCurl);
-
-        echo ' Tweeted !';
 
         echo PHP_EOL . PHP_EOL . 'Mark as videoed ...';
 
