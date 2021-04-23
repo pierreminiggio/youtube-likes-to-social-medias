@@ -130,6 +130,26 @@ class App
 
         echo ' Done !';
 
+        echo PHP_EOL . PHP_EOL . 'Picking a title...';
+
+        $randomLike = $likes[array_rand($likes)];
+        $title = $randomLike['title'] . ' | ' . $randomLike['channel_name'];
+
+        echo ' Picked !';
+
+        echo PHP_EOL . PHP_EOL . 'Building the description...';
+
+        $description = 'Chaque jour je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
+        $description .= PHP_EOL . PHP_EOL . 'Sinon je publie aussi des vidéos sur ma chaîne principale : https://ggio.link/youtube';
+
+        foreach ($likes as &$like) {
+            $description .= PHP_EOL . PHP_EOL;
+            $description .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
+            $description .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
+        }
+
+        echo ' Built !';
+
         echo PHP_EOL . PHP_EOL . 'Mark as videoed ...';
 
         // $setAsVideoedCurl = curl_init($apiBaseUrl . '/setAsVideoed.php');
