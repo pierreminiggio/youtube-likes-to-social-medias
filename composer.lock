@@ -4,12 +4,308 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa248aa6604961a87882f1085e936112",
-    "packages": [],
+    "content-hash": "83991c5e4c4af639004dd7f6f00a555f",
+    "packages": [
+        {
+            "name": "pierreminiggio/google-api-get-access-token-from-refresh-token",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-google-api-get-access-token-from-refresh-token.git",
+                "reference": "b5f9b47a26adfd6bfe59d5f37aab87f45319f1ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-google-api-get-access-token-from-refresh-token/zipball/b5f9b47a26adfd6bfe59d5f37aab87f45319f1ef",
+                "reference": "b5f9b47a26adfd6bfe59d5f37aab87f45319f1ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\GoogleTokenRefresher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "description": "Get Google API Access Token using your Refresh Token",
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-google-api-get-access-token-from-refresh-token/issues",
+                "source": "https://github.com/pierreminiggio/php-google-api-get-access-token-from-refresh-token/tree/1.1.0"
+            },
+            "time": "2021-04-20T19:31:14+00:00"
+        },
+        {
+            "name": "pierreminiggio/heropost-and-youtube-api-based-video-poster",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster.git",
+                "reference": "8c036a86c22fc019d41fe208ee8a5a0d029083e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/heropost-and-youtube-api-based-video-poster/zipball/8c036a86c22fc019d41fe208ee8a5a0d029083e2",
+                "reference": "8c036a86c22fc019d41fe208ee8a5a0d029083e2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0",
+                "pierreminiggio/google-api-get-access-token-from-refresh-token": "dev-main",
+                "pierreminiggio/heropost-youtube-posting": "dev-main",
+                "pierreminiggio/youtube-thumbnail-uploader": "dev-main",
+                "pierreminiggio/youtube-video-updater": "dev-main",
+                "psr/log": "1.1.x-dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "10.0.x-dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\HeropostAndYoutubeAPIBasedVideoPoster\\": "src/",
+                    "PierreMiniggio\\HeropostAndYoutubeAPIBasedVideoPosterTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/issues",
+                "source": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/tree/1.0.0"
+            },
+            "time": "2021-04-21T17:09:04+00:00"
+        },
+        {
+            "name": "pierreminiggio/heropost-youtube-posting",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-heropost-youtube-posting.git",
+                "reference": "1769ae180d62ca1188b55fc7057513d7ba85cff8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-heropost-youtube-posting/zipball/1769ae180d62ca1188b55fc7057513d7ba85cff8",
+                "reference": "1769ae180d62ca1188b55fc7057513d7ba85cff8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0",
+                "pierreminiggio/youtube-video-id-from-link": "dev-main"
+            },
+            "require-dev": {
+                "illuminate/support": "9.x-dev",
+                "phpunit/phpunit": "10.0.x-dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\HeropostYoutubePosting\\": "src/",
+                    "PierreMiniggio\\HeropostYoutubePostingTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-heropost-youtube-posting/issues",
+                "source": "https://github.com/pierreminiggio/php-heropost-youtube-posting/tree/1.0.1"
+            },
+            "time": "2021-04-21T17:00:37+00:00"
+        },
+        {
+            "name": "pierreminiggio/youtube-thumbnail-uploader",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/youtube-thumbnail-uploader.git",
+                "reference": "d1872153994244b2b460f45f4a291f7ed58bdc88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/youtube-thumbnail-uploader/zipball/d1872153994244b2b460f45f4a291f7ed58bdc88",
+                "reference": "d1872153994244b2b460f45f4a291f7ed58bdc88",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\YoutubeThumbnailUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/youtube-thumbnail-uploader/issues",
+                "source": "https://github.com/pierreminiggio/youtube-thumbnail-uploader/tree/1.0.1"
+            },
+            "time": "2021-04-20T10:19:03+00:00"
+        },
+        {
+            "name": "pierreminiggio/youtube-video-id-from-link",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-youtube-video-id-from-link.git",
+                "reference": "b730d019e031b0e322a98d0c5b85733f58f2d70e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-youtube-video-id-from-link/zipball/b730d019e031b0e322a98d0c5b85733f58f2d70e",
+                "reference": "b730d019e031b0e322a98d0c5b85733f58f2d70e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "10.0.x-dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\YoutubeVideoIdFromLink\\": "src/",
+                    "PierreMiniggio\\YoutubeVideoIdFromLinkTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-youtube-video-id-from-link/issues",
+                "source": "https://github.com/pierreminiggio/php-youtube-video-id-from-link/tree/1.0.0"
+            },
+            "time": "2021-04-18T22:21:37+00:00"
+        },
+        {
+            "name": "pierreminiggio/youtube-video-updater",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/youtube-video-updater.git",
+                "reference": "beff52f0911a4f6a4ba1bfe966af88ff44003095"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/youtube-video-updater/zipball/beff52f0911a4f6a4ba1bfe966af88ff44003095",
+                "reference": "beff52f0911a4f6a4ba1bfe966af88ff44003095",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\YoutubeVideoUpdater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/youtube-video-updater/issues",
+                "source": "https://github.com/pierreminiggio/youtube-video-updater/tree/1.0.2"
+            },
+            "time": "2021-04-20T15:50:34+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "a18c1e692e02b84abbafe4856c3cd7cc6903908c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/a18c1e692e02b84abbafe4856c3cd7cc6903908c",
+                "reference": "a18c1e692e02b84abbafe4856c3cd7cc6903908c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/master"
+            },
+            "time": "2021-03-02T15:02:34+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "pierreminiggio/heropost-and-youtube-api-based-video-poster": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

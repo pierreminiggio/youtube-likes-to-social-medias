@@ -1,5 +1,11 @@
 <?php
 
 return [
-    'apiToken' => ''
+    'apiToken' => '',
+    'heropostLogin' => '',
+    'heropostPassword' => '',
+    'channelId' => '',
+    'googleClientId' => '',
+    'googleClientSecret' => '',
+    'googleRefreshToken' => ''
 ];

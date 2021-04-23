@@ -2,6 +2,12 @@
 
 namespace App;
 
+use PierreMiniggio\GoogleTokenRefresher\GoogleClient;
+use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
+use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\VideoPosterFactory;
+use PierreMiniggio\HeropostYoutubePosting\YoutubeCategoriesEnum;
+use PierreMiniggio\HeropostYoutubePosting\YoutubeVideo;
+
 class App
 {
 
@@ -149,6 +155,33 @@ class App
         }
 
         echo ' Built !';
+
+        echo PHP_EOL . PHP_EOL . 'Uploading to Youtube ...';
+
+        $videoPoster = (new VideoPosterFactory())->make(new Logger());
+        $videoPoster->post(
+            $config['heropostLogin'],
+            $config['heropostPassword'],
+            $config['channelId'],
+            new Video(
+                new YoutubeVideo(
+                    $title,
+                    $description,
+                    YoutubeCategoriesEnum::EDUCATION
+                ),
+                [],
+                false,
+                $videoFile,
+                $thumbnailFile
+            ),
+            new GoogleClient(
+                $config['googleClientId'],
+                $config['googleClientSecret'],
+                $config['googleRefreshToken']
+            )
+        );
+
+        echo ' Uploaded !';
 
         echo PHP_EOL . PHP_EOL . 'Mark as videoed ...';
 

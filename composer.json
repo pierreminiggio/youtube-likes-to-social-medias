@@ -14,7 +14,10 @@
     "config": {
         "sort-packages": true
     },
-    "require": {},
+    "minimum-stability": "dev",
+    "require": {
+        "pierreminiggio/heropost-and-youtube-api-based-video-poster": "dev-main"
+    },
     "scripts": {
         "post-install-cmd": [
             "bash post-install.sh"
