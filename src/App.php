@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DateTime;
 use PierreMiniggio\GoogleTokenRefresher\GoogleClient;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\VideoPosterFactory;
@@ -128,7 +129,8 @@ class App
             . 'que j\'ai regardé'
             . PHP_EOL
             . 'le '
-            . date('d/m/Y');
+            . (new DateTime('-1 day'))->format('d/m/Y')
+        ;
         $font = $projectFolder . 'Roboto-Regular.ttf';
         imagettftext($img, 100, 0, 200, 200, $white, $font, $txt);
 
