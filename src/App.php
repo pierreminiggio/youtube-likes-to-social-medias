@@ -27,7 +27,9 @@ class App
         ;
         $token = $config['apiToken'];
 
-        echo PHP_EOL . 'Getting likes ...';
+        $yesterday = (new DateTime('-1 day'))->format('d/m/Y');
+
+        echo PHP_EOL . 'Getting ' . $yesterday . '\'s likes ...';
         
         $apiBaseUrl = 'https://old.miniggiodev.fr/api';
         $likeCurl = curl_init($apiBaseUrl . '/getVideoableLikes.php');
@@ -129,7 +131,7 @@ class App
             . 'que j\'ai regardé'
             . PHP_EOL
             . 'le '
-            . (new DateTime('-1 day'))->format('d/m/Y')
+            . $yesterday
         ;
         $font = $projectFolder . 'Roboto-Regular.ttf';
         imagettftext($img, 100, 0, 200, 200, $white, $font, $txt);
