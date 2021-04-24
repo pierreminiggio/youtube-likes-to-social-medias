@@ -189,7 +189,7 @@ class App
             echo PHP_EOL . PHP_EOL . 'Tweeting ...';
         
             $tweetStart = 'J\'ai 👍 les videos de ';
-            $tweetEnd = ' :' . PHP_EOL . 'https://youtu.be/' . $youtubeVideoId;
+            $tweetEnd = PHP_EOL . 'https://youtu.be/' . $youtubeVideoId;
 
             $twitterHandles = [];
             $tweet = '';
