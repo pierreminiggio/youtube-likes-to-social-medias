@@ -143,7 +143,7 @@ class App
         echo PHP_EOL . PHP_EOL . 'Picking a title...';
 
         $randomLike = $likes[array_rand($likes)];
-        $title = 'J\'ai regardé ' . $randomLike['title'] . ' | ' . $randomLike['channel_name'];
+        $title = 'J\'ai regardé ' . $randomLike['title'] . ' | ' . $randomLike['channel_name'] . ' et d\'autres vidéos';
 
         echo ' Picked !';
 
