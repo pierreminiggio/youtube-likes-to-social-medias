@@ -142,14 +142,23 @@ class App
 
         echo PHP_EOL . PHP_EOL . 'Picking a title...';
 
-        $randomLike = $likes[array_rand($likes)];
-        $title = 'J\'ai regardé ' . $randomLike['title'] . ' | ' . $randomLike['channel_name'] . ' et d\'autres vidéos';
+        if ($likes) {
+            $randomLike = $likes[array_rand($likes)];
+            $title = 'J\'ai regardé ' . $randomLike['title'] . ' | ' . $randomLike['channel_name'] . ' et d\'autres vidéos';
+        } else {
+            $title = 'J\'ai regardé rien du tout mdr';
+        } 
 
         echo ' Picked !';
+        echo PHP_EOL . 'Title : ' . $title;
 
         echo PHP_EOL . PHP_EOL . 'Building the description...';
 
-        $description = 'Chaque jour je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
+        $description = 'Chaque jour' . (
+            $likes
+                ? ''
+                : ' (mais pas aujourd\'hui faut croire...'
+        ) . ' je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
         $description .= PHP_EOL . PHP_EOL . 'Sinon je publie aussi des vidéos sur ma chaîne principale : https://ggio.link/youtube';
 
         foreach ($likes as &$like) {
