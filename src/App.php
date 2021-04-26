@@ -144,7 +144,31 @@ class App
 
         if ($likes) {
             $randomLike = $likes[array_rand($likes)];
-            $title = 'J\'ai regardé ' . $randomLike['title'] . ' | ' . $randomLike['channel_name'] . ' et d\'autres vidéos';
+            $channelName = $randomLike['channel_name'];
+
+            $iWatched = 'J\'ai regardé ';
+            $pipe = ' | ';
+            $andMoreVideos = ' et d\'autres vidéos';
+
+            $youtubeMaxTitleLength = 100;
+
+            $everyThingButVideoTitleLength =
+                strlen($iWatched)
+                + strlen($pipe)
+                + strlen($channelName)
+                + strlen($andMoreVideos)
+            ;
+
+            $selectedVideoTitle = $randomLike['title'];
+            $selectedVideoTitleLength = strlen($selectedVideoTitle);
+
+            $difference = $everyThingButVideoTitleLength + $selectedVideoTitleLength - $youtubeMaxTitleLength;
+            
+            if ($difference > 0) {
+                $selectedVideoTitle = substr($selectedVideoTitle, 0, -$difference); 
+            }
+            
+            $title = $iWatched . $selectedVideoTitle . $pipe . $channelName . $andMoreVideos;
         } else {
             $title = 'J\'ai regardé rien du tout mdr';
         } 
