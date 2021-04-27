@@ -1,8 +1,8 @@
 # youtube-likes-to-social-medias
 
 Every repos involved in this project : 
-Main cron script :
-https://github.com/pierreminiggio/youtube-likes-to-social-medias
+
+Main cron script : https://github.com/pierreminiggio/youtube-likes-to-social-medias
 
 Things the cron script uses :
 
