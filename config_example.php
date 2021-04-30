@@ -7,5 +7,12 @@ return [
     'channelId' => '',
     'googleClientId' => '',
     'googleClientSecret' => '',
-    'googleRefreshToken' => ''
+    'googleRefreshToken' => '',
+    'rendererProjects' => [
+        [
+            'token' => '',
+            'account' => '',
+            'project' => ''
+        ]
+    ]
 ];

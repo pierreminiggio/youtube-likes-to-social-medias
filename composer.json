@@ -16,6 +16,7 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "pierreminiggio/github-action-remotion-renderer": "9999999-dev",
         "pierreminiggio/heropost-and-youtube-api-based-video-poster": "dev-main"
     },
     "scripts": {

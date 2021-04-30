@@ -3,6 +3,8 @@
 namespace App;
 
 use DateTime;
+use Exception;
+use PierreMiniggio\GithubActionRemotionRenderer\GithubActionRemotionRenderer;
 use PierreMiniggio\GoogleTokenRefresher\GoogleClient;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\VideoPosterFactory;
@@ -61,62 +63,29 @@ class App
 
         echo ' Done !';
 
-        echo PHP_EOL . PHP_EOL . 'Populating likes ...';
-
-        $likePopulator = new LikeMediaPopulator($authHeader);
-        $likePopulator->populate($likes);
-
-        echo PHP_EOL . PHP_EOL . 'Populated !';
-
-        echo PHP_EOL . PHP_EOL . 'Saving likes into a JSON file ...';
-
-        file_put_contents(
-            __DIR__
-                . DIRECTORY_SEPARATOR
-                . '..'
-                . DIRECTORY_SEPARATOR
-                . 'node_modules'
-                . DIRECTORY_SEPARATOR
-                . '@pierreminiggio'
-                . DIRECTORY_SEPARATOR
-                . 'youtube-likes-recap-video-maker'
-                . DIRECTORY_SEPARATOR
-                . 'likes.json'
-            ,
-            json_encode($likes)
-        );
-
-        echo ' Saved !';
-
-        $videoFolder =
-            __DIR__
-            . DIRECTORY_SEPARATOR
-            . '..'
-            . DIRECTORY_SEPARATOR
-            . 'node_modules'
-            . DIRECTORY_SEPARATOR
-            . '@pierreminiggio'
-            . DIRECTORY_SEPARATOR
-            . 'youtube-likes-recap-video-maker'
-        ;
-
-        $videoFile = $videoFolder . DIRECTORY_SEPARATOR . 'out.mp4';
-
-        if (file_exists($videoFile)) {
-            echo PHP_EOL . PHP_EOL . 'Removing old video file ...';
-            unlink($videoFile);
-            echo ' Removed !';
-        }
-
         echo PHP_EOL . PHP_EOL . 'Rendering video ...';
-        $renderLog = shell_exec('npm --prefix ' . escapeshellarg($videoFolder) . ' run build');
+        
+        $rendererProjects = $config['rendererProjects'];
+        $rendererProject = $rendererProjects[array_rand($rendererProjects)];
 
-        if (! str_contains($renderLog, 'Your video is ready')) {
-            echo ' Error while rendering !';
-
-            return;
+        $renderer = new GithubActionRemotionRenderer();
+        try {
+            $videoFile = $renderer->render(
+                $rendererProject['token'],
+                $rendererProject['account'],
+                $rendererProject['project'],
+                1800,
+                0,
+                [
+                    'likes' => json_encode($likes)
+                ]
+            );
+        } catch (Exception $e) {
+            echo PHP_EOL . 'Error while rendering : ' . $e->getMessage();
+            var_dump($e->getTrace());
+            exit;
         }
-
+        
         echo ' Rendered !';
 
         echo PHP_EOL . PHP_EOL . 'Making a thumbnail...';
