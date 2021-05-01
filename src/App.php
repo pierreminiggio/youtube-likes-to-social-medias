@@ -63,6 +63,13 @@ class App
 
         echo ' Done !';
 
+        echo PHP_EOL . PHP_EOL . 'Populating likes ...';
+
+        $likePopulator = new LikeMediaPopulator($authHeader);
+        $likePopulator->populate($likes);
+
+        echo PHP_EOL . PHP_EOL . 'Populated !';
+
         echo PHP_EOL . PHP_EOL . 'Rendering video ...';
         
         $rendererProjects = $config['rendererProjects'];
