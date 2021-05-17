@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "1e70a82b09cffea032d336ee720056cf05dd31d2"
+                "reference": "8e3e3296824010393e019c72867051ab0b3b9ca2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/1e70a82b09cffea032d336ee720056cf05dd31d2",
-                "reference": "1e70a82b09cffea032d336ee720056cf05dd31d2",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/8e3e3296824010393e019c72867051ab0b3b9ca2",
+                "reference": "8e3e3296824010393e019c72867051ab0b3b9ca2",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +149,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-21T18:52:23+00:00"
+            "time": "2021-05-02T20:07:36+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -157,12 +157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "16fb5e396a71ba105dc417770d20d51c5745a05d"
+                "reference": "1081d884e354ffd259d4432f977c0263675fdc32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/16fb5e396a71ba105dc417770d20d51c5745a05d",
-                "reference": "16fb5e396a71ba105dc417770d20d51c5745a05d",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/1081d884e354ffd259d4432f977c0263675fdc32",
+                "reference": "1081d884e354ffd259d4432f977c0263675fdc32",
                 "shasum": ""
             },
             "require": {
@@ -198,7 +198,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-13T16:56:20+00:00"
+            "time": "2021-05-12T12:37:19+00:00"
         },
         {
             "name": "illuminate/macroable",
@@ -253,12 +253,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "96e0ec28313f1d83159371f72199ca56e54457a4"
+                "reference": "152c7015010530064f86ab98ce81c79dfe53bbc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/96e0ec28313f1d83159371f72199ca56e54457a4",
-                "reference": "96e0ec28313f1d83159371f72199ca56e54457a4",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/152c7015010530064f86ab98ce81c79dfe53bbc4",
+                "reference": "152c7015010530064f86ab98ce81c79dfe53bbc4",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +314,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-04-15T13:30:58+00:00"
+            "time": "2021-05-12T14:28:54+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -322,12 +322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4"
+                "reference": "d3c447f21072766cddec3522f9468a5849a76147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
-                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d3c447f21072766cddec3522f9468a5849a76147",
+                "reference": "d3c447f21072766cddec3522f9468a5849a76147",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-24T17:30:44+00:00"
+            "time": "2021-05-07T10:08:30+00:00"
         },
         {
             "name": "pierreminiggio/github-action-artifact-downloader",
@@ -846,12 +846,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster.git",
-                "reference": "726e31c366cb591c8d09e665b2ef40eeb3591edc"
+                "reference": "87d294140b28cb133816ee4a765dc7fb8ce4f5ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/heropost-and-youtube-api-based-video-poster/zipball/726e31c366cb591c8d09e665b2ef40eeb3591edc",
-                "reference": "726e31c366cb591c8d09e665b2ef40eeb3591edc",
+                "url": "https://api.github.com/repos/pierreminiggio/heropost-and-youtube-api-based-video-poster/zipball/87d294140b28cb133816ee4a765dc7fb8ce4f5ae",
+                "reference": "87d294140b28cb133816ee4a765dc7fb8ce4f5ae",
                 "shasum": ""
             },
             "require": {
@@ -883,9 +883,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/issues",
-                "source": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/tree/1.0.2"
+                "source": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/tree/1.1.1"
             },
-            "time": "2021-04-25T10:06:27+00:00"
+            "time": "2021-05-17T19:49:40+00:00"
         },
         {
             "name": "pierreminiggio/heropost-youtube-posting",
@@ -893,12 +893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-heropost-youtube-posting.git",
-                "reference": "1769ae180d62ca1188b55fc7057513d7ba85cff8"
+                "reference": "de9fd1b7ecdca84eafcca1a00cb59b67fb1f5aa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-heropost-youtube-posting/zipball/1769ae180d62ca1188b55fc7057513d7ba85cff8",
-                "reference": "1769ae180d62ca1188b55fc7057513d7ba85cff8",
+                "url": "https://api.github.com/repos/pierreminiggio/php-heropost-youtube-posting/zipball/de9fd1b7ecdca84eafcca1a00cb59b67fb1f5aa9",
+                "reference": "de9fd1b7ecdca84eafcca1a00cb59b67fb1f5aa9",
                 "shasum": ""
             },
             "require": {
@@ -926,9 +926,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-heropost-youtube-posting/issues",
-                "source": "https://github.com/pierreminiggio/php-heropost-youtube-posting/tree/1.0.1"
+                "source": "https://github.com/pierreminiggio/php-heropost-youtube-posting/tree/1.0.2"
             },
-            "time": "2021-04-21T17:00:37+00:00"
+            "time": "2021-05-17T19:42:30+00:00"
         },
         {
             "name": "pierreminiggio/youtube-thumbnail-uploader",
@@ -1099,12 +1099,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "a18c1e692e02b84abbafe4856c3cd7cc6903908c"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/a18c1e692e02b84abbafe4856c3cd7cc6903908c",
-                "reference": "a18c1e692e02b84abbafe4856c3cd7cc6903908c",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
@@ -1140,9 +1140,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/master"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-03-02T15:02:34+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -1435,12 +1435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "ec6ee6f48267cb3c84f4b1d9fd4f55c965e44873"
+                "reference": "f504ce568b6b950783ec08c56ea7ac510a548a47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/ec6ee6f48267cb3c84f4b1d9fd4f55c965e44873",
-                "reference": "ec6ee6f48267cb3c84f4b1d9fd4f55c965e44873",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/f504ce568b6b950783ec08c56ea7ac510a548a47",
+                "reference": "f504ce568b6b950783ec08c56ea7ac510a548a47",
                 "shasum": ""
             },
             "require": {
@@ -1523,7 +1523,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-28T06:48:47+00:00"
+            "time": "2021-05-16T13:08:56+00:00"
         },
         {
             "name": "symfony/translation-contracts",
