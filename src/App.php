@@ -122,9 +122,9 @@ class App
             $randomLike = $likes[array_rand($likes)];
             $channelName = $randomLike['channel_name'];
 
-            $iWatched = 'J\'ai regardé ';
+            $iWatched = 'J\'ai regardé "';
             $pipe = ' | ';
-            $andMoreVideos = ' et d\'autres vidéos';
+            $andMoreVideos = '" et d\'autres vidéos';
 
             $youtubeMaxTitleLength = 100;
 
@@ -147,7 +147,7 @@ class App
             $title = $iWatched . $selectedVideoTitle . $pipe . $channelName . $andMoreVideos;
         } else {
             $title = 'J\'ai regardé rien du tout mdr';
-        } 
+        }
 
         echo ' Picked !';
         echo PHP_EOL . 'Title : ' . $title;
