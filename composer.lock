@@ -322,12 +322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "6b981d9a0e5212231eaaba2648beb650687199e8"
+                "reference": "1fc6350286f54d06a0c507fd64346beb737040b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/6b981d9a0e5212231eaaba2648beb650687199e8",
-                "reference": "6b981d9a0e5212231eaaba2648beb650687199e8",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1fc6350286f54d06a0c507fd64346beb737040b0",
+                "reference": "1fc6350286f54d06a0c507fd64346beb737040b0",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-20T16:58:12+00:00"
+            "time": "2021-05-22T21:41:51+00:00"
         },
         {
             "name": "pierreminiggio/github-action-artifact-downloader",
@@ -454,12 +454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-remotion-renderer.git",
-                "reference": "9b62321f9cd2b3a649088498c43ae3540644ee70"
+                "reference": "9b5efdb97903f1237f9edf5f57119c4156a2cd6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-remotion-renderer/zipball/9b62321f9cd2b3a649088498c43ae3540644ee70",
-                "reference": "9b62321f9cd2b3a649088498c43ae3540644ee70",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-remotion-renderer/zipball/9b5efdb97903f1237f9edf5f57119c4156a2cd6a",
+                "reference": "9b5efdb97903f1237f9edf5f57119c4156a2cd6a",
                 "shasum": ""
             },
             "require": {
@@ -486,9 +486,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/tree/1.1.0"
+                "source": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/tree/1.2.0"
             },
-            "time": "2021-05-21T10:21:57+00:00"
+            "time": "2021-05-24T06:44:34+00:00"
         },
         {
             "name": "pierreminiggio/github-action-run",
@@ -649,12 +649,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader.git",
-                "reference": "75cfdca98dd9af7fe135b348766176939065e90c"
+                "reference": "19972f2646780ca224f47056e558b2819bcab6b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/zipball/75cfdca98dd9af7fe135b348766176939065e90c",
-                "reference": "75cfdca98dd9af7fe135b348766176939065e90c",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/zipball/19972f2646780ca224f47056e558b2819bcab6b0",
+                "reference": "19972f2646780ca224f47056e558b2819bcab6b0",
                 "shasum": ""
             },
             "require": {
@@ -685,9 +685,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/tree/1.1.0"
+                "source": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/tree/1.1.1"
             },
-            "time": "2021-05-21T09:37:42+00:00"
+            "time": "2021-05-21T12:13:36+00:00"
         },
         {
             "name": "pierreminiggio/github-action-runs-lister",
@@ -1431,16 +1431,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "5.x-dev",
+            "version": "5.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "f504ce568b6b950783ec08c56ea7ac510a548a47"
+                "reference": "675ddcccc944c3fd8cab267af94941f5627a2f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/f504ce568b6b950783ec08c56ea7ac510a548a47",
-                "reference": "f504ce568b6b950783ec08c56ea7ac510a548a47",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/675ddcccc944c3fd8cab267af94941f5627a2f57",
+                "reference": "675ddcccc944c3fd8cab267af94941f5627a2f57",
                 "shasum": ""
             },
             "require": {
@@ -1462,15 +1462,15 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "^4.4|^5.0",
-                "symfony/console": "^4.4|^5.0",
-                "symfony/dependency-injection": "^5.0",
-                "symfony/finder": "^4.4|^5.0",
-                "symfony/http-kernel": "^5.0",
-                "symfony/intl": "^4.4|^5.0",
+                "symfony/config": "^4.4|^5.0|^6.0",
+                "symfony/console": "^4.4|^5.0|^6.0",
+                "symfony/dependency-injection": "^5.0|^6.0",
+                "symfony/finder": "^4.4|^5.0|^6.0",
+                "symfony/http-kernel": "^5.0|^6.0",
+                "symfony/intl": "^4.4|^5.0|^6.0",
                 "symfony/polyfill-intl-icu": "^1.21",
                 "symfony/service-contracts": "^1.1.2|^2",
-                "symfony/yaml": "^4.4|^5.0"
+                "symfony/yaml": "^4.4|^5.0|^6.0"
             },
             "suggest": {
                 "psr/log-implementation": "To use logging capability in translator",
@@ -1507,7 +1507,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.3.0-RC1"
+                "source": "https://github.com/symfony/translation/tree/5.4"
             },
             "funding": [
                 {
@@ -1523,7 +1523,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-16T13:08:56+00:00"
+            "time": "2021-05-19T21:13:48+00:00"
         },
         {
             "name": "symfony/translation-contracts",

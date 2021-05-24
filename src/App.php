@@ -76,6 +76,10 @@ class App
         $rendererProject = $rendererProjects[array_rand($rendererProjects)];
 
         $renderer = new GithubActionRemotionRenderer();
+        $runnerAndDownloader = $renderer->getRunnerAndDownloader();
+        $runnerAndDownloader->sleepTimeBetweenRunCreationChecks = 30;
+        $runnerAndDownloader->numberOfRunCreationChecksBeforeAssumingItsNotCreated = 20;
+
         try {
             $videoFile = $renderer->render(
                 $rendererProject['token'],
