@@ -2,8 +2,12 @@
 
 namespace App;
 
+use Dailymotion;
 use DateTime;
 use Exception;
+use PierreMiniggio\DailymotionFileUploader\FileUploader;
+use PierreMiniggio\DailymotionTokenProvider\AccessTokenProvider;
+use PierreMiniggio\DailymotionUploadUrlMaker\UploadUrlMaker;
 use PierreMiniggio\GithubActionRemotionRenderer\GithubActionRemotionRenderer;
 use PierreMiniggio\GoogleTokenRefresher\GoogleClient;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
@@ -16,6 +20,8 @@ class App
 
     public function run(): void
     {
+
+        $uploadDestination = UploadDestination::DAILYMOTION;
 
         $projectFolder =
             __DIR__
@@ -173,38 +179,97 @@ class App
 
         echo ' Built !';
 
-        echo PHP_EOL . PHP_EOL . 'Uploading to Youtube ...';
+        echo PHP_EOL . PHP_EOL . 'Uploading to ';
 
-        $videoPoster = (new VideoPosterFactory())->make(new Logger());
-        $youtubeVideoId = $videoPoster->post(
-            $config['heropostLogin'],
-            $config['heropostPassword'],
-            $config['channelId'],
-            new Video(
-                new YoutubeVideo(
-                    $title,
-                    $description,
-                    YoutubeCategoriesEnum::EDUCATION
+        if ($uploadDestination === UploadDestination::YOUTUBE) {
+            echo 'Youtube ...';
+
+            $videoPoster = (new VideoPosterFactory())->make(new Logger());
+            $youtubeVideoId = $videoPoster->post(
+                $config['heropostLogin'],
+                $config['heropostPassword'],
+                $config['channelId'],
+                new Video(
+                    new YoutubeVideo(
+                        $title,
+                        $description,
+                        YoutubeCategoriesEnum::EDUCATION
+                    ),
+                    [],
+                    false,
+                    $videoFile,
+                    $thumbnailFile
                 ),
-                [],
-                false,
-                $videoFile,
-                $thumbnailFile
-            ),
-            new GoogleClient(
-                $config['googleClientId'],
-                $config['googleClientSecret'],
-                $config['googleRefreshToken']
-            )
-        );
+                new GoogleClient(
+                    $config['googleClientId'],
+                    $config['googleClientSecret'],
+                    $config['googleRefreshToken']
+                )
+            );
+            $videoLink = 'https://youtu.be/' . $youtubeVideoId;
+        } else {
+            echo 'Dailymotion ...';
 
+            $dmConfig = $config['dailymotion'];
+            $dmClientId = $dmConfig['apiKey'];
+            $dmClientSecret = $dmConfig['apiSecret'];
+            $dmUsername = $dmConfig['username'];
+            $dmPassword = $dmConfig['password'];
+
+            $dmAPI = new Dailymotion();
+            $dmAPI->setGrantType(
+                Dailymotion::GRANT_TYPE_PASSWORD,
+                $dmClientId,
+                $dmClientSecret,
+                [
+                    'manage_videos'
+                ],
+                [
+                    'username' => $dmUsername,
+                    'password' => $dmPassword
+                ]
+            );
+
+            $tokenProvider = new AccessTokenProvider();
+            $token = $tokenProvider->login($dmClientId, $dmClientSecret, $dmUsername, $dmPassword);
+            if ($token === null) {
+                echo ' Login failed !';
+                die;
+            }
+
+            $dmUrlMaker = new UploadUrlMaker();
+            $dmUploadUrl = $dmUrlMaker->create($token);
+            if ($dmUploadUrl === null) {
+                echo ' Upload URL not created !';
+                die;
+            }
+
+            $dmFileUploader = new FileUploader();
+            $dmVideoUrl = $dmFileUploader->upload($dmUploadUrl, $videoFile);
+            if ($dmVideoUrl === null) {
+                echo ' Video URL not created ! Upload failed ?';
+                die;
+            }
+
+            $videoCreator = new DailymotionVideoCreator($dmAPI);
+
+            try {
+                $dmVideoId = $videoCreator->create($dmVideoUrl, $title, $description);
+            } catch (Exception $e) {
+                echo ' Error while creating video: ' . $e->getMessage();
+                echo PHP_EOL . 'Trace: ' . json_encode($e->getTrace());
+                die;
+            }
+
+            $videoLink = 'https://dai.ly/' . $dmVideoId;
+        }
         echo ' Uploaded !';
 
-        if ($youtubeVideoId) {
+        if ($videoLink) {
             echo PHP_EOL . PHP_EOL . 'Tweeting ...';
         
             $tweetStart = 'J\'ai 👍 les videos de ';
-            $tweetEnd = PHP_EOL . 'https://youtu.be/' . $youtubeVideoId;
+            $tweetEnd = PHP_EOL . $videoLink;
 
             $twitterHandles = [];
             $tweet = '';

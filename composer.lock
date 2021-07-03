@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cff03a0ea08999e8154d4624226317ac",
+    "content-hash": "4b5c31a3bb8d85a15ecde9d9d4e6ef7b",
     "packages": [
+        {
+            "name": "dailymotion/sdk",
+            "version": "1.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dailymotion/dailymotion-sdk-php.git",
+                "reference": "0f558978785f9a6ab9e59c393041d4896550973b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dailymotion/dailymotion-sdk-php/zipball/0f558978785f9a6ab9e59c393041d4896550973b",
+                "reference": "0f558978785f9a6ab9e59c393041d4896550973b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Dailymotion.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dailymotion PHP SDK",
+            "homepage": "http://dailymotion.com",
+            "keywords": [
+                "api",
+                "dailymotion",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/dailymotion/dailymotion-sdk-php/issues",
+                "source": "https://github.com/dailymotion/dailymotion-sdk-php/tree/master"
+            },
+            "time": "2015-11-20T11:18:32+00:00"
+        },
         {
             "name": "doctrine/inflector",
             "version": "2.1.x-dev",
@@ -102,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "86f18a82530f1b5b4f9a8b81cd889bc258458ccb"
+                "reference": "16bd112ac7770cd946ef29c43c8df1bfd1630027"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/86f18a82530f1b5b4f9a8b81cd889bc258458ccb",
-                "reference": "86f18a82530f1b5b4f9a8b81cd889bc258458ccb",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/16bd112ac7770cd946ef29c43c8df1bfd1630027",
+                "reference": "16bd112ac7770cd946ef29c43c8df1bfd1630027",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +186,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-05-24T18:49:42+00:00"
+            "time": "2021-06-21T14:03:29+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -157,12 +194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "1081d884e354ffd259d4432f977c0263675fdc32"
+                "reference": "bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/1081d884e354ffd259d4432f977c0263675fdc32",
-                "reference": "1081d884e354ffd259d4432f977c0263675fdc32",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb",
+                "reference": "bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb",
                 "shasum": ""
             },
             "require": {
@@ -198,7 +235,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-05-12T12:37:19+00:00"
+            "time": "2021-06-14T13:41:37+00:00"
         },
         {
             "name": "illuminate/macroable",
@@ -253,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "152c7015010530064f86ab98ce81c79dfe53bbc4"
+                "reference": "34f679b748a34052df0ddcc6fa13edde38a967c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/152c7015010530064f86ab98ce81c79dfe53bbc4",
-                "reference": "152c7015010530064f86ab98ce81c79dfe53bbc4",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/34f679b748a34052df0ddcc6fa13edde38a967c4",
+                "reference": "34f679b748a34052df0ddcc6fa13edde38a967c4",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +351,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-05-12T14:28:54+00:00"
+            "time": "2021-06-28T10:25:01+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -322,12 +359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "741964dfae807a7d6d56b056d0e5f38c36865527"
+                "reference": "cf1583b15bd4f060b8e01e2fbcf25073418f65ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/741964dfae807a7d6d56b056d0e5f38c36865527",
-                "reference": "741964dfae807a7d6d56b056d0e5f38c36865527",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cf1583b15bd4f060b8e01e2fbcf25073418f65ca",
+                "reference": "cf1583b15bd4f060b8e01e2fbcf25073418f65ca",
                 "shasum": ""
             },
             "require": {
@@ -380,15 +417,15 @@
                 {
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
-                    "homepage": "http://nesbot.com"
+                    "homepage": "https://markido.com"
                 },
                 {
                     "name": "kylekatarnls",
-                    "homepage": "http://github.com/kylekatarnls"
+                    "homepage": "https://github.com/kylekatarnls"
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
-            "homepage": "http://carbon.nesbot.com",
+            "homepage": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
@@ -408,7 +445,121 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-25T13:20:21+00:00"
+            "time": "2021-07-01T17:17:31+00:00"
+        },
+        {
+            "name": "pierreminiggio/dailymotion-file-uploader",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-dailymotion-file-uploader.git",
+                "reference": "9bc6cac3e0c0347746c8a788c791246bdc656a6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-dailymotion-file-uploader/zipball/9bc6cac3e0c0347746c8a788c791246bdc656a6a",
+                "reference": "9bc6cac3e0c0347746c8a788c791246bdc656a6a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\DailymotionFileUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-dailymotion-file-uploader/issues",
+                "source": "https://github.com/pierreminiggio/php-dailymotion-file-uploader/tree/1.0.0"
+            },
+            "time": "2021-07-03T11:09:35+00:00"
+        },
+        {
+            "name": "pierreminiggio/dailymotion-token-provider",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-dailymotion-token-provider.git",
+                "reference": "aebd50924b49c07d93aecc50e8a9741ba734cc19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-dailymotion-token-provider/zipball/aebd50924b49c07d93aecc50e8a9741ba734cc19",
+                "reference": "aebd50924b49c07d93aecc50e8a9741ba734cc19",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\DailymotionTokenProvider\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-dailymotion-token-provider/issues",
+                "source": "https://github.com/pierreminiggio/php-dailymotion-token-provider/tree/1.0.0"
+            },
+            "time": "2021-07-03T10:50:39+00:00"
+        },
+        {
+            "name": "pierreminiggio/dailymotion-upload-url-maker",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-dailymotion-upload-url-maker.git",
+                "reference": "7796b736abcf48b0fabff700a4530e885e54a166"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-dailymotion-upload-url-maker/zipball/7796b736abcf48b0fabff700a4530e885e54a166",
+                "reference": "7796b736abcf48b0fabff700a4530e885e54a166",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.4.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\DailymotionUploadUrlMaker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-dailymotion-upload-url-maker/issues",
+                "source": "https://github.com/pierreminiggio/php-dailymotion-upload-url-maker/tree/1.0.0"
+            },
+            "time": "2021-07-03T11:01:55+00:00"
         },
         {
             "name": "pierreminiggio/github-action-artifact-downloader",
@@ -1202,12 +1353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627"
+                "reference": "36b691b0bdbc963fb610da193a48b4c009d03a62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5f38c8804a9e97d23e0c8d63341088cd8a22d627",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/36b691b0bdbc963fb610da193a48b4c009d03a62",
+                "reference": "36b691b0bdbc963fb610da193a48b4c009d03a62",
                 "shasum": ""
             },
             "require": {
@@ -1217,7 +1368,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -1246,7 +1397,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/main"
             },
             "funding": [
                 {
@@ -1262,7 +1413,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-23T23:28:01+00:00"
+            "time": "2021-06-09T13:36:38+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1270,12 +1421,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "9ad2f3c9de0273812c616fdf96070a129c3defcb"
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9ad2f3c9de0273812c616fdf96070a129c3defcb",
-                "reference": "9ad2f3c9de0273812c616fdf96070a129c3defcb",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
                 "shasum": ""
             },
             "require": {
@@ -1343,7 +1494,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-23T08:04:02+00:00"
+            "time": "2021-05-27T12:26:48+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -1411,7 +1562,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/main"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.0"
             },
             "funding": [
                 {
@@ -1435,12 +1586,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "675ddcccc944c3fd8cab267af94941f5627a2f57"
+                "reference": "6cf81dd9302d7b6823de3cbae423570b7e5b1a3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/675ddcccc944c3fd8cab267af94941f5627a2f57",
-                "reference": "675ddcccc944c3fd8cab267af94941f5627a2f57",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/6cf81dd9302d7b6823de3cbae423570b7e5b1a3a",
+                "reference": "6cf81dd9302d7b6823de3cbae423570b7e5b1a3a",
                 "shasum": ""
             },
             "require": {
@@ -1477,7 +1628,6 @@
                 "symfony/config": "",
                 "symfony/yaml": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -1523,11 +1673,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-19T21:13:48+00:00"
+            "time": "2021-07-03T09:16:21+00:00"
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "dev-main",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
@@ -1545,7 +1695,6 @@
             "suggest": {
                 "symfony/translation-implementation": ""
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1683,12 +1832,17 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "pierreminiggio/dailymotion-file-uploader": 20,
+        "pierreminiggio/dailymotion-token-provider": 20,
+        "pierreminiggio/dailymotion-upload-url-maker": 20,
         "pierreminiggio/github-action-remotion-renderer": 20,
         "pierreminiggio/heropost-and-youtube-api-based-video-poster": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-curl": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

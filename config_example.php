@@ -14,5 +14,11 @@ return [
             'account' => '',
             'project' => ''
         ]
+    ],
+    'dailymotion' => [
+        'apiKey' => '',
+        'apiSecret' => '',
+        'username' => '',
+        'password' => ''
     ]
 ];

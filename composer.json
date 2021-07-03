@@ -16,6 +16,11 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "ext-curl": "*",
+        "dailymotion/sdk": "^1.6",
+        "pierreminiggio/dailymotion-file-uploader": "dev-main",
+        "pierreminiggio/dailymotion-token-provider": "dev-main",
+        "pierreminiggio/dailymotion-upload-url-maker": "dev-main",
         "pierreminiggio/github-action-remotion-renderer": "9999999-dev",
         "pierreminiggio/heropost-and-youtube-api-based-video-poster": "dev-main"
     },
