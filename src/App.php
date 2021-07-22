@@ -103,7 +103,7 @@ class App
             var_dump($e->getTrace());
         }
 
-        $oldMiniggiodevLikesUrl = 'https://old.miniggiodev.fr/likes?date=' . $yesterdayDate->format('Y-m-d');
+        $oldMiniggiodevLikesUrl = 'https://likes.ggio.fr?date=' . $yesterdayDate->format('Y-m-d');
 
         if (isset($videoFile)) {
             echo ' Rendered !';
