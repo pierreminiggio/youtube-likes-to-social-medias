@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Exeption;
 use Psr\Log\LoggerInterface;
 
 class Logger implements LoggerInterface
@@ -9,7 +10,7 @@ class Logger implements LoggerInterface
     public function emergency($message, array $context = [])
     {
         $this->log('emergency', $message, $context);
-        exit;
+        throw new Exeption('Video render failed');
     }
 
     public function alert($message, array $context = [])

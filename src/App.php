@@ -35,7 +35,8 @@ class App
         ;
         $token = $config['apiToken'];
 
-        $yesterday = (new DateTime('-1 day'))->format('d/m/Y');
+        $yesterdayDate = (new DateTime('-1 day'));
+        $yesterday = $yesterdayDate->format('d/m/Y');
 
         echo PHP_EOL . 'Getting ' . $yesterday . '\'s likes ...';
         
@@ -100,234 +101,237 @@ class App
         } catch (Exception $e) {
             echo PHP_EOL . 'Error while rendering : ' . $e->getMessage();
             var_dump($e->getTrace());
-            exit;
         }
-        
-        echo ' Rendered !';
 
-        echo PHP_EOL . PHP_EOL . 'Making a thumbnail...';
+        $oldMiniggiodevLikesUrl = 'https://old.miniggiodev.fr/likes?date=' . $yesterdayDate->format('Y-m-d');
 
-        $thumbnailName = 'minia.png';
-        $thumbnailFile = $projectFolder . $thumbnailName;
+        if (isset($videoFile)) {
+            echo ' Rendered !';
 
-        $img = imagecreatetruecolor(1280, 720);
-        $white = imagecolorallocate($img, 255, 255, 255);
-        $txt = 'Les vidéos'
-            . PHP_EOL
-            . 'que j\'ai regardé'
-            . PHP_EOL
-            . 'le '
-            . $yesterday
-        ;
-        $font = $projectFolder . 'Roboto-Regular.ttf';
-        imagettftext($img, 100, 0, 200, 200, $white, $font, $txt);
+            echo PHP_EOL . PHP_EOL . 'Making a thumbnail...';
 
-        imagepng($img, $thumbnailFile, 9);
+            $thumbnailName = 'minia.png';
+            $thumbnailFile = $projectFolder . $thumbnailName;
 
-        echo ' Done !';
-
-        echo PHP_EOL . PHP_EOL . 'Picking a title...';
-
-        if ($likes) {
-            $randomLike = $likes[array_rand($likes)];
-            $channelName = $randomLike['channel_name'];
-
-            $iWatched = 'J\'ai regardé "';
-            $pipe = ' | ';
-            $andMoreVideos = '" et d\'autres vidéos';
-
-            $youtubeMaxTitleLength = 100;
-
-            $everyThingButVideoTitleLength =
-                strlen($iWatched)
-                + strlen($pipe)
-                + strlen($channelName)
-                + strlen($andMoreVideos)
+            $img = imagecreatetruecolor(1280, 720);
+            $white = imagecolorallocate($img, 255, 255, 255);
+            $txt = 'Les vidéos'
+                . PHP_EOL
+                . 'que j\'ai regardé'
+                . PHP_EOL
+                . 'le '
+                . $yesterday
             ;
+            $font = $projectFolder . 'Roboto-Regular.ttf';
+            imagettftext($img, 100, 0, 200, 200, $white, $font, $txt);
 
-            $selectedVideoTitle = $randomLike['title'];
-            $selectedVideoTitleLength = strlen($selectedVideoTitle);
+            imagepng($img, $thumbnailFile, 9);
 
-            $difference = $everyThingButVideoTitleLength + $selectedVideoTitleLength - $youtubeMaxTitleLength;
-            
-            if ($difference > 0) {
-                $selectedVideoTitle = substr($selectedVideoTitle, 0, -$difference); 
-            }
-            
-            $title = $iWatched . $selectedVideoTitle . $pipe . $channelName . $andMoreVideos;
-        } else {
-            $title = 'J\'ai regardé rien du tout mdr';
-        }
+            echo ' Done !';
 
-        echo ' Picked !';
-        echo PHP_EOL . 'Title : ' . $title;
+            echo PHP_EOL . PHP_EOL . 'Picking a title...';
 
-        echo PHP_EOL . PHP_EOL . 'Building the description...';
+            if ($likes) {
+                $randomLike = $likes[array_rand($likes)];
+                $channelName = $randomLike['channel_name'];
 
-        $description = 'Chaque jour' . (
-            $likes
-                ? ''
-                : ' (mais pas aujourd\'hui faut croire...'
-        ) . ' je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
-        $description .= PHP_EOL . PHP_EOL . 'Sinon je publie aussi des vidéos sur ma chaîne principale : https://ggio.link/youtube';
+                $iWatched = 'J\'ai regardé "';
+                $pipe = ' | ';
+                $andMoreVideos = '" et d\'autres vidéos';
 
-        foreach ($likes as &$like) {
-            $description .= PHP_EOL . PHP_EOL;
-            $description .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
-            $description .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
-        }
+                $youtubeMaxTitleLength = 100;
 
-        echo ' Built !';
+                $everyThingButVideoTitleLength =
+                    strlen($iWatched)
+                    + strlen($pipe)
+                    + strlen($channelName)
+                    + strlen($andMoreVideos)
+                ;
 
-        echo PHP_EOL . PHP_EOL . 'Uploading to ';
+                $selectedVideoTitle = $randomLike['title'];
+                $selectedVideoTitleLength = strlen($selectedVideoTitle);
 
-        if ($uploadDestination === UploadDestination::YOUTUBE) {
-            echo 'Youtube ...';
+                $difference = $everyThingButVideoTitleLength + $selectedVideoTitleLength - $youtubeMaxTitleLength;
 
-            $videoPoster = (new VideoPosterFactory())->make(new Logger());
-            $youtubeVideoId = $videoPoster->post(
-                $config['heropostLogin'],
-                $config['heropostPassword'],
-                $config['channelId'],
-                new Video(
-                    new YoutubeVideo(
-                        $title,
-                        $description,
-                        YoutubeCategoriesEnum::EDUCATION
-                    ),
-                    [],
-                    false,
-                    $videoFile,
-                    $thumbnailFile
-                ),
-                new GoogleClient(
-                    $config['googleClientId'],
-                    $config['googleClientSecret'],
-                    $config['googleRefreshToken']
-                )
-            );
-            $videoLink = 'https://youtu.be/' . $youtubeVideoId;
-        } else {
-            echo 'Dailymotion ...';
+                if ($difference > 0) {
+                    $selectedVideoTitle = substr($selectedVideoTitle, 0, -$difference);
+                }
 
-            $dmConfig = $config['dailymotion'];
-            $dmClientId = $dmConfig['apiKey'];
-            $dmClientSecret = $dmConfig['apiSecret'];
-            $dmUsername = $dmConfig['username'];
-            $dmPassword = $dmConfig['password'];
-
-            $dmAPI = new Dailymotion();
-            $dmAPI->setGrantType(
-                Dailymotion::GRANT_TYPE_PASSWORD,
-                $dmClientId,
-                $dmClientSecret,
-                [
-                    'manage_videos'
-                ],
-                [
-                    'username' => $dmUsername,
-                    'password' => $dmPassword
-                ]
-            );
-
-            $tokenProvider = new AccessTokenProvider();
-            $token = $tokenProvider->login($dmClientId, $dmClientSecret, $dmUsername, $dmPassword);
-            if ($token === null) {
-                echo ' Login failed !';
-                die;
+                $title = $iWatched . $selectedVideoTitle . $pipe . $channelName . $andMoreVideos;
+            } else {
+                $title = 'J\'ai regardé rien du tout mdr';
             }
 
-            $dmUrlMaker = new UploadUrlMaker();
-            $dmUploadUrl = $dmUrlMaker->create($token);
-            if ($dmUploadUrl === null) {
-                echo ' Upload URL not created !';
-                die;
-            }
+            echo ' Picked !';
+            echo PHP_EOL . 'Title : ' . $title;
 
-            $dmFileUploader = new FileUploader();
-            $dmVideoUrl = $dmFileUploader->upload($dmUploadUrl, $videoFile);
-            if ($dmVideoUrl === null) {
-                echo ' Video URL not created ! Upload failed ?';
-                die;
-            }
+            echo PHP_EOL . PHP_EOL . 'Building the description...';
 
-            $videoCreator = new DailymotionVideoCreator($dmAPI);
+            $description = 'Chaque jour' . (
+                $likes
+                    ? ''
+                    : ' (mais pas aujourd\'hui faut croire...'
+            ) . ' je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
+            $description .= PHP_EOL . PHP_EOL . 'Sinon je publie aussi des vidéos sur ma chaîne principale : https://ggio.link/youtube';
 
-            try {
-                $dmVideoId = $videoCreator->create($dmVideoUrl, $title, $description);
-            } catch (Exception $e) {
-                echo ' Error while creating video: ' . $e->getMessage();
-                echo PHP_EOL . 'Trace: ' . json_encode($e->getTrace());
-                die;
-            }
-
-            $videoLink = 'https://dai.ly/' . $dmVideoId;
-        }
-        echo ' Uploaded !';
-
-        if ($videoLink) {
-            echo PHP_EOL . PHP_EOL . 'Tweeting ...';
-        
-            $tweetStart = 'J\'ai 👍 les videos de ';
-            $tweetEnd = PHP_EOL . $videoLink;
-
-            $twitterHandles = [];
-            $tweet = '';
             foreach ($likes as &$like) {
-                $twitterCurl = curl_init('https://twitter-handle-finder-api.miniggiodev.fr/' . $like['channel_id']);
-                curl_setopt($twitterCurl, CURLOPT_RETURNTRANSFER, true);
-                $twitterCurlResponse = curl_exec($twitterCurl);
-                curl_close($twitterCurl);
+                $description .= PHP_EOL . PHP_EOL;
+                $description .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
+                $description .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
+            }
 
-                if (empty($twitterCurlResponse)) {
-                    continue;
-                }
+            $description .= PHP_EOL . PHP_EOL . 'Plus d\'infos ici : ' . $oldMiniggiodevLikesUrl;
 
-                $jsonTwitterCurlResponse = json_decode($twitterCurlResponse, true);
+            echo ' Built !';
 
-                if ($jsonTwitterCurlResponse === null || empty($jsonTwitterCurlResponse['twitter_handle'])) {
-                    continue;
-                }
+            echo PHP_EOL . PHP_EOL . 'Uploading to ';
 
-                $twitterHandle = $jsonTwitterCurlResponse['twitter_handle'];
+            if ($uploadDestination === UploadDestination::YOUTUBE) {
+                echo 'Youtube ...';
 
-                if (in_array($twitterHandle, $twitterHandles)) {
-                    continue;
-                }
-
-                $twitterHandles[] = $twitterHandle;
-
-                $maybeNextTweet =
-                    $tweetStart
-                    . implode(
-                        ' ',
-                        array_map(fn (string $handle): string => '@' . $handle, $twitterHandles)
+                $videoPoster = (new VideoPosterFactory())->make(new Logger());
+                $youtubeVideoId = $videoPoster->post(
+                    $config['heropostLogin'],
+                    $config['heropostPassword'],
+                    $config['channelId'],
+                    new Video(
+                        new YoutubeVideo(
+                            $title,
+                            $description,
+                            YoutubeCategoriesEnum::EDUCATION
+                        ),
+                        [],
+                        false,
+                        $videoFile,
+                        $thumbnailFile
+                    ),
+                    new GoogleClient(
+                        $config['googleClientId'],
+                        $config['googleClientSecret'],
+                        $config['googleRefreshToken']
                     )
-                    . $tweetEnd;
+                );
+                $videoLink = 'https://youtu.be/' . $youtubeVideoId;
+            } else {
+                echo 'Dailymotion ...';
 
-                if (strlen($maybeNextTweet) >= 280) {
-                    break;
+                $dmConfig = $config['dailymotion'];
+                $dmClientId = $dmConfig['apiKey'];
+                $dmClientSecret = $dmConfig['apiSecret'];
+                $dmUsername = $dmConfig['username'];
+                $dmPassword = $dmConfig['password'];
+
+                $dmAPI = new Dailymotion();
+                $dmAPI->setGrantType(
+                    Dailymotion::GRANT_TYPE_PASSWORD,
+                    $dmClientId,
+                    $dmClientSecret,
+                    [
+                        'manage_videos'
+                    ],
+                    [
+                        'username' => $dmUsername,
+                        'password' => $dmPassword
+                    ]
+                );
+
+                $tokenProvider = new AccessTokenProvider();
+                $token = $tokenProvider->login($dmClientId, $dmClientSecret, $dmUsername, $dmPassword);
+                if ($token === null) {
+                    echo ' Login failed !';
+                    die;
                 }
 
-                $tweet = $maybeNextTweet;
+                $dmUrlMaker = new UploadUrlMaker();
+                $dmUploadUrl = $dmUrlMaker->create($token);
+                if ($dmUploadUrl === null) {
+                    echo ' Upload URL not created !';
+                    die;
+                }
+
+                $dmFileUploader = new FileUploader();
+                $dmVideoUrl = $dmFileUploader->upload($dmUploadUrl, $videoFile);
+                if ($dmVideoUrl === null) {
+                    echo ' Video URL not created ! Upload failed ?';
+                    die;
+                }
+
+                $videoCreator = new DailymotionVideoCreator($dmAPI);
+
+                try {
+                    $dmVideoId = $videoCreator->create($dmVideoUrl, $title, $description);
+                } catch (Exception $e) {
+                    echo ' Error while creating video: ' . $e->getMessage();
+                    echo PHP_EOL . 'Trace: ' . json_encode($e->getTrace());
+                    die;
+                }
+
+                $videoLink = 'https://dai.ly/' . $dmVideoId;
             }
-
-            if (! $twitterHandles) {
-                $tweet = $tweetStart . 'plusieurs Youtubeurs' . $tweetEnd;
-            }
-
-            $postTweetCurl = curl_init('https://old.miniggiodev.fr/test/twitter/api/index.php');
-            $PostTweetCurlOptions = $curlOptions;
-            $PostTweetCurlOptions[CURLOPT_POST] = 1;
-            $PostTweetCurlOptions[CURLOPT_POSTFIELDS] = $tweet;
-            curl_setopt_array($postTweetCurl, $PostTweetCurlOptions);
-            curl_exec($postTweetCurl);
-            curl_close($postTweetCurl);
-
-            echo ' Tweeted !';
+            echo ' Uploaded !';
         } else {
-            echo PHP_EOL . PHP_EOL . 'Can\'t tweet as we didn\'t get the youtube id :\'(';
+            echo 'We won\'t upload a video since it likely failed, we\'ll only Tweet text';
         }
+
+        echo PHP_EOL . PHP_EOL . 'Tweeting ...';
+
+        $tweetStart = 'J\'ai 👍 les videos de ';
+        $tweetEnd = PHP_EOL . ($videoLink ?? $oldMiniggiodevLikesUrl);
+
+        $twitterHandles = [];
+        $tweet = '';
+        foreach ($likes as &$like) {
+            $twitterCurl = curl_init('https://twitter-handle-finder-api.miniggiodev.fr/' . $like['channel_id']);
+            curl_setopt($twitterCurl, CURLOPT_RETURNTRANSFER, true);
+            $twitterCurlResponse = curl_exec($twitterCurl);
+            curl_close($twitterCurl);
+
+            if (empty($twitterCurlResponse)) {
+                continue;
+            }
+
+            $jsonTwitterCurlResponse = json_decode($twitterCurlResponse, true);
+
+            if ($jsonTwitterCurlResponse === null || empty($jsonTwitterCurlResponse['twitter_handle'])) {
+                continue;
+            }
+
+            $twitterHandle = $jsonTwitterCurlResponse['twitter_handle'];
+
+            if (in_array($twitterHandle, $twitterHandles)) {
+                continue;
+            }
+
+            $twitterHandles[] = $twitterHandle;
+
+            $maybeNextTweet =
+                $tweetStart
+                . implode(
+                    ' ',
+                    array_map(fn (string $handle): string => '@' . $handle, $twitterHandles)
+                )
+                . $tweetEnd;
+
+            if (strlen($maybeNextTweet) >= 280) {
+                break;
+            }
+
+            $tweet = $maybeNextTweet;
+        }
+
+        if (! $twitterHandles) {
+            $tweet = $tweetStart . 'plusieurs Youtubeurs' . $tweetEnd;
+        }
+
+        $postTweetCurl = curl_init('https://old.miniggiodev.fr/test/twitter/api/index.php');
+        $PostTweetCurlOptions = $curlOptions;
+        $PostTweetCurlOptions[CURLOPT_POST] = 1;
+        $PostTweetCurlOptions[CURLOPT_POSTFIELDS] = $tweet;
+        curl_setopt_array($postTweetCurl, $PostTweetCurlOptions);
+        curl_exec($postTweetCurl);
+        curl_close($postTweetCurl);
+
+        echo ' Tweeted !';
 
         echo PHP_EOL . PHP_EOL . 'Mark as videoed ...';
 

@@ -17,6 +17,7 @@
     "minimum-stability": "dev",
     "require": {
         "ext-curl": "*",
+        "ext-gd": "*",
         "dailymotion/sdk": "^1.6",
         "pierreminiggio/dailymotion-file-uploader": "dev-main",
         "pierreminiggio/dailymotion-token-provider": "dev-main",
