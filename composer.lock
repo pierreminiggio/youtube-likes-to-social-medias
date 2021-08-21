@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b5c31a3bb8d85a15ecde9d9d4e6ef7b",
+    "content-hash": "0f93273719a3fe05a3ed981eddf6fe83",
     "packages": [
         {
             "name": "dailymotion/sdk",
@@ -139,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "16bd112ac7770cd946ef29c43c8df1bfd1630027"
+                "reference": "664e65d31007d8447a70295e209fef2b6d82a288"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/16bd112ac7770cd946ef29c43c8df1bfd1630027",
-                "reference": "16bd112ac7770cd946ef29c43c8df1bfd1630027",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/664e65d31007d8447a70295e209fef2b6d82a288",
+                "reference": "664e65d31007d8447a70295e209fef2b6d82a288",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-21T14:03:29+00:00"
+            "time": "2021-08-20T09:25:10+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -194,12 +194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb"
+                "reference": "e3ce49a4803133c7b2ab8360b508015ce27959f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb",
-                "reference": "bb0f07fdf4f4cb69b8ad8f7d5c8b2a9da334a1cb",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e3ce49a4803133c7b2ab8360b508015ce27959f1",
+                "reference": "e3ce49a4803133c7b2ab8360b508015ce27959f1",
                 "shasum": ""
             },
             "require": {
@@ -235,7 +235,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-14T13:41:37+00:00"
+            "time": "2021-08-19T15:27:12+00:00"
         },
         {
             "name": "illuminate/macroable",
@@ -290,12 +290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "34f679b748a34052df0ddcc6fa13edde38a967c4"
+                "reference": "777dcf0494249da66c1f6d8d226906ffb89c7d40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/34f679b748a34052df0ddcc6fa13edde38a967c4",
-                "reference": "34f679b748a34052df0ddcc6fa13edde38a967c4",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/777dcf0494249da66c1f6d8d226906ffb89c7d40",
+                "reference": "777dcf0494249da66c1f6d8d226906ffb89c7d40",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +314,7 @@
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the composer class (^9.0).",
-                "league/commonmark": "Required to use Str::markdown() and Stringable::markdown() (^1.3).",
+                "league/commonmark": "Required to use Str::markdown() and Stringable::markdown() (^2.0).",
                 "ramsey/uuid": "Required to use Str::uuid() (^4.0).",
                 "symfony/process": "Required to use the composer class (^5.3).",
                 "symfony/var-dumper": "Required to use the dd function (^5.3).",
@@ -351,7 +351,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-06-28T10:25:01+00:00"
+            "time": "2021-08-16T14:49:33+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -359,23 +359,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "cf1583b15bd4f060b8e01e2fbcf25073418f65ca"
+                "reference": "4db7cb0a6b0b5ccb9e7168e8206d640f2ded116b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cf1583b15bd4f060b8e01e2fbcf25073418f65ca",
-                "reference": "cf1583b15bd4f060b8e01e2fbcf25073418f65ca",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4db7cb0a6b0b5ccb9e7168e8206d640f2ded116b",
+                "reference": "4db7cb0a6b0b5ccb9e7168e8206d640f2ded116b",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.0",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
                 "doctrine/orm": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
@@ -390,8 +391,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev",
-                    "dev-3.x": "3.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -445,7 +446,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-01T17:17:31+00:00"
+            "time": "2021-08-20T11:01:19+00:00"
         },
         {
             "name": "pierreminiggio/dailymotion-file-uploader",
@@ -605,12 +606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-remotion-renderer.git",
-                "reference": "9b5efdb97903f1237f9edf5f57119c4156a2cd6a"
+                "reference": "3f00fafacd9f35072b434508cbcc81e3ba01999f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-remotion-renderer/zipball/9b5efdb97903f1237f9edf5f57119c4156a2cd6a",
-                "reference": "9b5efdb97903f1237f9edf5f57119c4156a2cd6a",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-remotion-renderer/zipball/3f00fafacd9f35072b434508cbcc81e3ba01999f",
+                "reference": "3f00fafacd9f35072b434508cbcc81e3ba01999f",
                 "shasum": ""
             },
             "require": {
@@ -637,9 +638,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/tree/1.2.0"
+                "source": "https://github.com/pierreminiggio/php-github-action-remotion-renderer/tree/1.3.0"
             },
-            "time": "2021-05-24T06:44:34+00:00"
+            "time": "2021-08-18T23:01:50+00:00"
         },
         {
             "name": "pierreminiggio/github-action-run",
@@ -685,12 +686,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-run-artifacts-lister.git",
-                "reference": "6232d64e48940e23de1b70b030c06f1af0fa3013"
+                "reference": "920f063ded843f4b469771c1770e1743d8c0fd60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-artifacts-lister/zipball/6232d64e48940e23de1b70b030c06f1af0fa3013",
-                "reference": "6232d64e48940e23de1b70b030c06f1af0fa3013",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-artifacts-lister/zipball/920f063ded843f4b469771c1770e1743d8c0fd60",
+                "reference": "920f063ded843f4b469771c1770e1743d8c0fd60",
                 "shasum": ""
             },
             "require": {
@@ -713,9 +714,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-run-artifacts-lister/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-run-artifacts-lister/tree/1.0.0"
+                "source": "https://github.com/pierreminiggio/php-github-action-run-artifacts-lister/tree/1.1.0"
             },
-            "time": "2021-04-29T09:11:15+00:00"
+            "time": "2021-08-15T22:31:58+00:00"
         },
         {
             "name": "pierreminiggio/github-action-run-creator",
@@ -723,12 +724,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-run-creator.git",
-                "reference": "cf7417aadeddb372f62aff8b7113109524c35a04"
+                "reference": "fe585feb3b19fa731ec93e7bb24cdb6f389849d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-creator/zipball/cf7417aadeddb372f62aff8b7113109524c35a04",
-                "reference": "cf7417aadeddb372f62aff8b7113109524c35a04",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-creator/zipball/fe585feb3b19fa731ec93e7bb24cdb6f389849d3",
+                "reference": "fe585feb3b19fa731ec93e7bb24cdb6f389849d3",
                 "shasum": ""
             },
             "require": {
@@ -751,9 +752,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-run-creator/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-run-creator/tree/1.0.1"
+                "source": "https://github.com/pierreminiggio/php-github-action-run-creator/tree/1.1.0"
             },
-            "time": "2021-04-29T09:18:28+00:00"
+            "time": "2021-08-02T22:57:54+00:00"
         },
         {
             "name": "pierreminiggio/github-action-run-detailer",
@@ -761,12 +762,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-run-detailer.git",
-                "reference": "856e5f2da2375b4f3c8f81900d5f835eba117420"
+                "reference": "7eff1cc804785980ee19d558eae72bd2330a55e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-detailer/zipball/856e5f2da2375b4f3c8f81900d5f835eba117420",
-                "reference": "856e5f2da2375b4f3c8f81900d5f835eba117420",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-detailer/zipball/7eff1cc804785980ee19d558eae72bd2330a55e5",
+                "reference": "7eff1cc804785980ee19d558eae72bd2330a55e5",
                 "shasum": ""
             },
             "require": {
@@ -790,9 +791,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-run-detailer/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-run-detailer/tree/1.0.2"
+                "source": "https://github.com/pierreminiggio/php-github-action-run-detailer/tree/1.1.0"
             },
-            "time": "2021-04-29T23:25:46+00:00"
+            "time": "2021-08-15T22:30:07+00:00"
         },
         {
             "name": "pierreminiggio/github-action-run-starter-and-artifact-downloader",
@@ -800,12 +801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader.git",
-                "reference": "33a136e9c88855bb237355e11ade80228318e937"
+                "reference": "11d844cea17cbaadb2f4d295e75daab593f0c560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/zipball/33a136e9c88855bb237355e11ade80228318e937",
-                "reference": "33a136e9c88855bb237355e11ade80228318e937",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/zipball/11d844cea17cbaadb2f4d295e75daab593f0c560",
+                "reference": "11d844cea17cbaadb2f4d295e75daab593f0c560",
                 "shasum": ""
             },
             "require": {
@@ -836,9 +837,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/tree/1.1.2"
+                "source": "https://github.com/pierreminiggio/php-github-action-run-starter-and-artifact-downloader/tree/1.2.0"
             },
-            "time": "2021-05-25T21:11:30+00:00"
+            "time": "2021-08-15T22:41:51+00:00"
         },
         {
             "name": "pierreminiggio/github-action-runs-lister",
@@ -846,12 +847,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/php-github-action-runs-lister.git",
-                "reference": "66103f777f2edbcb7d2b5625eea73758ce788f46"
+                "reference": "881e6528ced8a9f91631df9621f3e906f0ff976e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-runs-lister/zipball/66103f777f2edbcb7d2b5625eea73758ce788f46",
-                "reference": "66103f777f2edbcb7d2b5625eea73758ce788f46",
+                "url": "https://api.github.com/repos/pierreminiggio/php-github-action-runs-lister/zipball/881e6528ced8a9f91631df9621f3e906f0ff976e",
+                "reference": "881e6528ced8a9f91631df9621f3e906f0ff976e",
                 "shasum": ""
             },
             "require": {
@@ -875,9 +876,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/php-github-action-runs-lister/issues",
-                "source": "https://github.com/pierreminiggio/php-github-action-runs-lister/tree/3.0.0"
+                "source": "https://github.com/pierreminiggio/php-github-action-runs-lister/tree/3.1.0"
             },
-            "time": "2021-05-25T20:56:36+00:00"
+            "time": "2021-08-15T22:25:42+00:00"
         },
         {
             "name": "pierreminiggio/github-statuses-enum",
@@ -997,12 +998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster.git",
-                "reference": "87d294140b28cb133816ee4a765dc7fb8ce4f5ae"
+                "reference": "37dd5611fac9e9ea3a96397b3d4525d4bce77b3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pierreminiggio/heropost-and-youtube-api-based-video-poster/zipball/87d294140b28cb133816ee4a765dc7fb8ce4f5ae",
-                "reference": "87d294140b28cb133816ee4a765dc7fb8ce4f5ae",
+                "url": "https://api.github.com/repos/pierreminiggio/heropost-and-youtube-api-based-video-poster/zipball/37dd5611fac9e9ea3a96397b3d4525d4bce77b3d",
+                "reference": "37dd5611fac9e9ea3a96397b3d4525d4bce77b3d",
                 "shasum": ""
             },
             "require": {
@@ -1012,7 +1013,7 @@
                 "pierreminiggio/heropost-youtube-posting": "dev-main",
                 "pierreminiggio/youtube-thumbnail-uploader": "dev-main",
                 "pierreminiggio/youtube-video-updater": "dev-main",
-                "psr/log": "1.1.x-dev"
+                "psr/log": "3.x-dev"
             },
             "require-dev": {
                 "phpunit/phpunit": "10.0.x-dev"
@@ -1034,9 +1035,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/issues",
-                "source": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/tree/1.1.1"
+                "source": "https://github.com/pierreminiggio/heropost-and-youtube-api-based-video-poster/tree/1.1.2"
             },
-            "time": "2021-05-17T19:49:40+00:00"
+            "time": "2021-07-25T09:04:20+00:00"
         },
         {
             "name": "pierreminiggio/heropost-youtube-posting",
@@ -1250,27 +1251,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1291,9 +1292,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/3.0.0"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2021-07-14T16:46:02+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -1353,12 +1354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "36b691b0bdbc963fb610da193a48b4c009d03a62"
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/36b691b0bdbc963fb610da193a48b4c009d03a62",
-                "reference": "36b691b0bdbc963fb610da193a48b4c009d03a62",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
                 "shasum": ""
             },
             "require": {
@@ -1413,7 +1414,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-09T13:36:38+00:00"
+            "time": "2021-07-12T14:48:14+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1478,7 +1479,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/main"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -1502,12 +1503,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0"
+                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/eca0bf41ed421bed1b57c4958bab16aa86b757d0",
-                "reference": "eca0bf41ed421bed1b57c4958bab16aa86b757d0",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/1100343ed1a92e3a38f9ae122fc0eb21602547be",
+                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be",
                 "shasum": ""
             },
             "require": {
@@ -1562,7 +1563,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.23.1"
             },
             "funding": [
                 {
@@ -1578,7 +1579,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-19T12:13:01+00:00"
+            "time": "2021-07-28T13:41:28+00:00"
         },
         {
             "name": "symfony/translation",
@@ -1586,23 +1587,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "6cf81dd9302d7b6823de3cbae423570b7e5b1a3a"
+                "reference": "4531df1d02c786bdec526bcc9904a3267437d6b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/6cf81dd9302d7b6823de3cbae423570b7e5b1a3a",
-                "reference": "6cf81dd9302d7b6823de3cbae423570b7e5b1a3a",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/4531df1d02c786bdec526bcc9904a3267437d6b0",
+                "reference": "4531df1d02c786bdec526bcc9904a3267437d6b0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/deprecation-contracts": "^2.1",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php80": "^1.15",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/translation-contracts": "^2.3"
             },
             "conflict": {
                 "symfony/config": "<4.4",
+                "symfony/console": "<5.3",
                 "symfony/dependency-injection": "<5.0",
                 "symfony/http-kernel": "<5.0",
                 "symfony/twig-bundle": "<5.0",
@@ -1612,9 +1614,9 @@
                 "symfony/translation-implementation": "2.3"
             },
             "require-dev": {
-                "psr/log": "~1.0",
+                "psr/log": "^1|^2|^3",
                 "symfony/config": "^4.4|^5.0|^6.0",
-                "symfony/console": "^4.4|^5.0|^6.0",
+                "symfony/console": "^5.4|^6.0",
                 "symfony/dependency-injection": "^5.0|^6.0",
                 "symfony/finder": "^4.4|^5.0|^6.0",
                 "symfony/http-kernel": "^5.0|^6.0",
@@ -1673,20 +1675,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-03T09:16:21+00:00"
+            "time": "2021-08-18T08:03:57+00:00"
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v2.4.0",
+            "version": "2.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "95c812666f3e91db75385749fe219c5e494c7f95"
+                "reference": "6e2aa82901f45c38761ba61c1082584ae6f5dbda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/95c812666f3e91db75385749fe219c5e494c7f95",
-                "reference": "95c812666f3e91db75385749fe219c5e494c7f95",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/6e2aa82901f45c38761ba61c1082584ae6f5dbda",
+                "reference": "6e2aa82901f45c38761ba61c1082584ae6f5dbda",
                 "shasum": ""
             },
             "require": {
@@ -1698,7 +1700,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -1735,7 +1737,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/translation-contracts/tree/2.5"
             },
             "funding": [
                 {
@@ -1751,7 +1753,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-23T23:28:01+00:00"
+            "time": "2021-07-13T10:07:36+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -1841,7 +1843,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "ext-gd": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

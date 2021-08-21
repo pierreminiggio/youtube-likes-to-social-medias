@@ -167,7 +167,7 @@ class App
 
             echo PHP_EOL . PHP_EOL . 'Building the description...';
 
-            $descriptionMakeSize = UploadDestination::DAILYMOTION ? 3000 : null;
+            $maxDescriptionLength = UploadDestination::DAILYMOTION ? 3000 : null;
 
             $description = 'Chaque jour' . (
                 $likes
@@ -183,9 +183,9 @@ class App
                 $thisLikeDescription .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
                 $thisLikeDescription .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
                 
-                $willDescriptionBeTooLong = $descriptionMakeSize !== null && strlen(
+                $willDescriptionBeTooLong = $maxDescriptionLength !== null && strlen(
                     $description . $thisLikeDescription . $descriptionSuffix
-                ) > $descriptionMakeSize
+                ) > $maxDescriptionLength
                 ;
 
                 if ($willDescriptionBeTooLong) {
