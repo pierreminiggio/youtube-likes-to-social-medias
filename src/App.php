@@ -167,6 +167,8 @@ class App
 
             echo PHP_EOL . PHP_EOL . 'Building the description...';
 
+            $descriptionMakeSize = UploadDestination::DAILYMOTION ? 3000 : null;
+
             $description = 'Chaque jour' . (
                 $likes
                     ? ''
@@ -174,13 +176,26 @@ class App
             ) . ' je regarde des vidéos sur Youtube, pour découvrir et apprendre des choses, ou bien pour me divertir :P';
             $description .= PHP_EOL . PHP_EOL . 'Sinon je publie aussi des vidéos sur ma chaîne principale : https://ggio.link/youtube';
 
+            $descriptionSuffix = PHP_EOL . PHP_EOL . 'Plus d\'infos ici : ' . $oldMiniggiodevLikesUrl;
+
             foreach ($likes as &$like) {
-                $description .= PHP_EOL . PHP_EOL;
-                $description .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
-                $description .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
+                $thisLikeDescription = PHP_EOL . PHP_EOL;
+                $thisLikeDescription .= $like['title'] . ' | ' . $like['channel_name'] . ' :';
+                $thisLikeDescription .= PHP_EOL . 'https://youtube.com/watch?v=' . $like['youtube_id'];
+                
+                $willDescriptionBeTooLong = $descriptionMakeSize !== null && strlen(
+                    $description . $thisLikeDescription . $descriptionSuffix
+                ) > $descriptionMakeSize
+                ;
+
+                if ($willDescriptionBeTooLong) {
+                    break;
+                }
+
+                $description .= $thisLikeDescription;
             }
 
-            $description .= PHP_EOL . PHP_EOL . 'Plus d\'infos ici : ' . $oldMiniggiodevLikesUrl;
+            $description .= $descriptionSuffix;
 
             echo ' Built !';
 
