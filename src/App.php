@@ -70,6 +70,12 @@ class App
 
         echo ' Done !';
 
+        if (! $likes) {
+            echo 'No likes';
+
+            return;
+        }
+
         echo PHP_EOL . PHP_EOL . 'Populating likes ...';
 
         $likePopulator = new LikeMediaPopulator($authHeader);
