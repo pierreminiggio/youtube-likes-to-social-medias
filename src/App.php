@@ -4,7 +4,6 @@ namespace App;
 
 use Dailymotion;
 use DateTime;
-use Exception;
 use PierreMiniggio\DailymotionFileUploader\FileUploader;
 use PierreMiniggio\DailymotionTokenProvider\AccessTokenProvider;
 use PierreMiniggio\DailymotionUploadUrlMaker\UploadUrlMaker;
@@ -14,6 +13,7 @@ use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\VideoPosterFactory;
 use PierreMiniggio\HeropostYoutubePosting\YoutubeCategoriesEnum;
 use PierreMiniggio\HeropostYoutubePosting\YoutubeVideo;
+use Throwable;
 
 class App
 {
@@ -104,7 +104,7 @@ class App
                     'likes' => json_encode($likes)
                 ]
             );
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             echo PHP_EOL . 'Error while rendering : ' . $e->getMessage();
             var_dump($e->getTrace());
         }
@@ -281,7 +281,7 @@ class App
 
                 try {
                     $dmVideoId = $videoCreator->create($dmVideoUrl, $title, $description);
-                } catch (Exception $e) {
+                } catch (Throwable $e) {
                     echo ' Error while creating video: ' . $e->getMessage();
                     echo PHP_EOL . 'Trace: ' . json_encode($e->getTrace());
                     die;
