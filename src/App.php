@@ -293,6 +293,14 @@ class App
         } else {
             echo 'We won\'t upload a video since it likely failed, we\'ll only Tweet text';
         }
+        
+        echo PHP_EOL . PHP_EOL . 'Cleaning video file ...';
+        
+        if (file_exists($videoFile)) {
+            unlink($videoFile);
+        }
+        
+        echo ' Cleaned !';
 
         echo PHP_EOL . PHP_EOL . 'Tweeting ...';
 
