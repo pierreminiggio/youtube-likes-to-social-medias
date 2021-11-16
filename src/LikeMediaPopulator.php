@@ -21,7 +21,7 @@ class LikeMediaPopulator
 
     public function tryPopulating(array &$likes, int $retries = 1): void
     {
-        if ($retries <= 0) {
+        if ($retries < 0) {
             return;
         }
 
