@@ -16,6 +16,15 @@ class LikeMediaPopulator
 
     public function populate(array &$likes): void
     {
+        $this->tryPopulating($likes);
+    }
+
+    public function tryPopulating(array &$likes, int $retries = 1): void
+    {
+        if ($retries <= 0) {
+            return;
+        }
+
         $supportedLangs = ['fr', 'en'];
 
         echo PHP_EOL . 'Getting supported langs ...';
@@ -121,5 +130,10 @@ class LikeMediaPopulator
 
             echo ' ' . ($like['video_clip'] ? 'Got one' : 'None') . ' !';
         }
+
+        $nextRetryValue = $retries - 1;
+        echo PHP_EOL . PHP_EOL . $nextRetryValue . ' retrie(s) left';
+
+        $this->tryPopulating($likes, $nextRetryValue);
     }
 }
