@@ -20,5 +20,11 @@ return [
         'apiSecret' => '',
         'username' => '',
         'password' => ''
+    ],
+    'db' => [
+        'host' => '',
+        'database' => 'channel_storage',
+        'username' => '',
+        'password' => ''
     ]
 ];

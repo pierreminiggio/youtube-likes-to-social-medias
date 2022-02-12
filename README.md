@@ -25,3 +25,8 @@ Posting to Youtube, using Heropost & Youtube API : https://github.com/pierremini
 Find Youtube channels' twitter handles (to tag them on Twitter that I liked their stuff) : https://twitter-handle-finder-api.miniggiodev.fr (https://github.com/pierreminiggio/youtube-channel-twitter-handle-finder-api)
 
 Mark liked videos as videoed : https://github.com/pierreminiggio/old.miniggiodev.fr/blob/main/api/setAsVideoed.php
+
+Migration
+```sql
+CREATE TABLE `channel_storage`.`like_recap` ( `id` INT NOT NULL AUTO_INCREMENT , `tweet_id` VARCHAR(255) NOT NULL , `tweet_date` DATETIME NOT NULL , `tweet_content` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL , `video_link` VARCHAR(255) NULL , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+```

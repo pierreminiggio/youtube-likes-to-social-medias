@@ -7,6 +7,8 @@ use DateTime;
 use PierreMiniggio\DailymotionFileUploader\FileUploader;
 use PierreMiniggio\DailymotionTokenProvider\AccessTokenProvider;
 use PierreMiniggio\DailymotionUploadUrlMaker\UploadUrlMaker;
+use PierreMiniggio\DatabaseConnection\DatabaseConnection;
+use PierreMiniggio\DatabaseFetcher\DatabaseFetcher;
 use PierreMiniggio\GithubActionRemotionRenderer\GithubActionRemotionRenderer;
 use PierreMiniggio\GoogleTokenRefresher\GoogleClient;
 use PierreMiniggio\HeropostAndYoutubeAPIBasedVideoPoster\Video;
@@ -357,7 +359,7 @@ class App
         $PostTweetCurlOptions[CURLOPT_POST] = 1;
         $PostTweetCurlOptions[CURLOPT_POSTFIELDS] = $tweet;
         curl_setopt_array($postTweetCurl, $PostTweetCurlOptions);
-        curl_exec($postTweetCurl);
+        $postTweetCurlResponse = curl_exec($postTweetCurl);
         curl_close($postTweetCurl);
 
         echo ' Tweeted !';
@@ -391,5 +393,52 @@ class App
         }
 
         echo ' Marked !';
+
+        echo PHP_EOL . ' Saving tweet id and video...';
+
+        if (! $postTweetCurlResponse) {
+            echo ' No Tweet id !';
+
+            return;
+        }
+
+        $postTweetCurlJsonResponse = json_decode($postTweetCurlResponse, true);
+
+        if (! $postTweetCurlJsonResponse || ! isset($postTweetCurlJsonResponse['id'])) {
+            echo ' No Tweet id !';
+
+            return;
+        }
+
+        $tweetId = $postTweetCurlJsonResponse['id'];
+        $tweetVideoLink = $videoLink ?? null;
+        $yesterdayTweetDate = $yesterdayDate->format('Y-m-d');
+
+        $dbConfig = $config['db'];
+
+        $fetcher = new DatabaseFetcher(new DatabaseConnection(
+            $dbConfig['host'],
+            $dbConfig['database'],
+            $dbConfig['username'],
+            $dbConfig['password'],
+            DatabaseConnection::UTF8_MB4
+        ));
+
+        $fetcher->exec(
+            $fetcher->createQuery(
+                'like_recap'
+            )->insertInto(
+                'tweet_id, tweet_date, tweet_content, video_link',
+                ':tweet_id, :tweet_date, :tweet_content, :video_link'
+            ),
+            [
+                'tweet_id' => $tweetId,
+                'tweet_date' => $yesterdayTweetDate,
+                'tweet_content' => $tweet,
+                'video_link' => $tweetVideoLink
+            ]
+        );
+
+        echo ' Saved !';
     }
 }
