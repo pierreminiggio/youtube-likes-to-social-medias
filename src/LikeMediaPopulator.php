@@ -131,7 +131,7 @@ class LikeMediaPopulator
             echo ' ' . ($like['video_clip'] ? 'Got one' : 'None') . ' !';
         }
 
-        echo PHP_EOL . PHP_EOL . $nextRetryValue . ' retrie(s) left';
+        echo PHP_EOL . PHP_EOL . $retries . ' retrie(s) left';
         $nextRetryValue = $retries - 1;
 
         $this->tryPopulating($likes, $nextRetryValue);
