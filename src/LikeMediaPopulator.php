@@ -132,8 +132,7 @@ class LikeMediaPopulator
         }
 
         echo PHP_EOL . PHP_EOL . $retries . ' retrie(s) left';
-        $nextRetryValue = $retries - 1;
 
-        $this->tryPopulating($likes, $nextRetryValue);
+        $this->tryPopulating($likes, $retries - 1);
     }
 }
